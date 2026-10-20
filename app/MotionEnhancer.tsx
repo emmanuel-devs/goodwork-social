@@ -35,7 +35,7 @@ export default function MotionEnhancer() {
       ".footer-bottom > *"
     ];
 
-    const targets = Array.from(document.querySelectorAll(selectors.join(",")));
+    const targets = Array.from(document.querySelectorAll<HTMLElement>(selectors.join(",")));
     if (!targets.length) return;
 
     targets.forEach((element, index) => {
