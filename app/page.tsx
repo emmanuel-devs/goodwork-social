@@ -1,4 +1,4 @@
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, CirclePlay, MoveUpRight } from "lucide-react";
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, MoveUpRight } from "lucide-react";
 
 const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "#contact";
 
