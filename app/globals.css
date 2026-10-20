@@ -60,3 +60,58 @@ a{color:inherit;text-decoration:none}img{display:block;max-width:100%}a,button{-
 .not-found-card h1{font-size:clamp(32px,6vw,54px);line-height:1;letter-spacing:-.075em;margin:0 0 16px}
 .not-found-card>p:not(.eyebrow){font-size:13px;line-height:1.8;color:var(--muted);max-width:430px;margin:0 0 25px}
 @media(max-width:650px){.not-found-main{padding:38px 0}.not-found-number{font-size:clamp(88px,25vw,140px)}}
+
+
+/* Motion direction: quiet editorial reveals, a tactile hero and responsive hover details */
+.motion-reveal{--motion-delay:0ms}
+html.motion-ready .motion-reveal:not(.is-visible){opacity:0;transform:translate3d(0,26px,0);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--motion-delay)}
+html.motion-ready .motion-reveal.is-visible{opacity:1;transform:translate3d(0,0,0);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--motion-delay)}
+.hero-copy>.motion-reveal{will-change:opacity,transform}
+.hero-art{transform:perspective(1100px) rotate(.6deg) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease}
+.hero-art.is-visible{box-shadow:12px 14px 0 #ded8cb}
+.hero-photo img{transform:scale(1.045);transition:transform 1.25s cubic-bezier(.2,.7,.2,1)}
+.hero-art.is-visible .hero-photo img{transform:scale(1)}
+.photo-stamp{transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s ease}
+.hero-art:hover .photo-stamp{transform:rotate(0deg) translateY(-3px);box-shadow:0 9px 20px #25272220}
+.hero-ribbon>div{animation:ribbon-breathe 7s ease-in-out infinite alternate}
+@keyframes ribbon-breathe{from{transform:translateX(0)}to{transform:translateX(5px)}}
+.brand-mark{transition:transform .45s cubic-bezier(.2,.7,.2,1),border-radius .45s ease}
+.brand:hover .brand-mark{transform:rotate(-9deg) scale(1.06);border-radius:12px}
+.service-card{transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s ease,box-shadow .35s ease}
+.service-card:hover{box-shadow:0 14px 30px #2527220b}
+.service-icon{transition:transform .4s cubic-bezier(.2,.7,.2,1),border-radius .4s ease}
+.service-card:hover .service-icon{transform:rotate(-8deg) scale(1.08);border-radius:14px}
+.project-image img{transition:transform .8s cubic-bezier(.2,.7,.2,1),filter .8s ease}
+.project-card:hover .project-image img{transform:scale(1.055);filter:saturate(1.06)}
+.project-metric{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.project-card:hover .project-metric{transform:translateY(-5px)}
+.mini-chart i{transform-origin:bottom;animation:chart-rise .85s cubic-bezier(.2,.7,.2,1) both}
+.mini-chart i:nth-child(2){animation-delay:.05s}.mini-chart i:nth-child(3){animation-delay:.1s}.mini-chart i:nth-child(4){animation-delay:.15s}.mini-chart i:nth-child(5){animation-delay:.2s}.mini-chart i:nth-child(6){animation-delay:.25s}.mini-chart i:nth-child(7){animation-delay:.3s}.mini-chart i:nth-child(8){animation-delay:.35s}
+@keyframes chart-rise{from{transform:scaleY(.12);opacity:.35}to{transform:scaleY(1);opacity:1}}
+.approach-steps article{transition:padding-left .3s ease,border-color .3s ease}
+.approach-steps article:hover{padding-left:8px;border-color:#dba18f}
+.step-no{transition:transform .3s ease}
+.approach-steps article:hover .step-no{transform:translateX(2px)}
+.testimonial-card{transition:transform .35s cubic-bezier(.2,.7,.2,1),border-color .35s ease,box-shadow .35s ease}
+.testimonial-card:hover{transform:translateY(-5px);border-color:#d6b5a8;box-shadow:0 14px 28px #2527220a}
+.testimonial-avatar{transition:transform .35s ease}
+.testimonial-card:hover .testimonial-avatar{transform:scale(1.08)}
+.package-card{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease}
+.package-card:hover{transform:translateY(-5px);box-shadow:0 16px 30px #25272212}
+.faq-list details[open]>p{animation:faq-unfold .3s ease both}
+@keyframes faq-unfold{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+.button-primary,.button-light,.header-cta,.text-link,.service-card>a,.package-card>a{transition:transform .25s cubic-bezier(.2,.7,.2,1),background .25s ease,color .25s ease,gap .25s ease}
+.button-primary:hover svg,.button-light:hover svg,.header-cta:hover svg,.text-link:hover svg,.service-card>a:hover svg,.package-card>a:hover svg{transform:translate(2px,-2px)}
+.button-primary svg,.button-light svg,.header-cta svg,.text-link svg,.service-card>a svg,.package-card>a svg{transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+@media(max-width:650px){
+  html.motion-ready .motion-reveal:not(.is-visible){transform:translate3d(0,18px,0)}
+  .hero-art{transform:rotate(.3deg)}
+  .hero-art.is-visible{box-shadow:6px 6px 0 #ded8cb}
+  .hero-ribbon>div{animation:none}
+  .approach-steps article:hover{padding-left:0}
+}
+@media(prefers-reduced-motion:reduce){
+  .motion-reveal,html.motion-ready .motion-reveal:not(.is-visible),html.motion-ready .motion-reveal.is-visible{opacity:1!important;transform:none!important;transition:none!important}
+  .hero-art,.hero-photo img,.photo-stamp,.brand-mark,.service-card,.service-icon,.project-image img,.project-metric,.approach-steps article,.step-no,.testimonial-card,.testimonial-avatar,.package-card,.button-primary svg,.button-light svg,.header-cta svg,.text-link svg,.service-card>a svg,.package-card>a svg{animation:none!important;transition:none!important;transform:none!important}
+  .hero-ribbon>div{animation:none!important}
+}
