@@ -1,6 +1,6 @@
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, Sparkles } from "lucide-react";
 
-const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "#contact";
+const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "https://your-ghl-booking-link.example";
 const services = [
   { tag: "THINK", icon: "↗", title: "Strategy & direction", text: "Find the clearest story, the right audience and the content pillars worth showing up for." },
   { tag: "MAKE", icon: "✳", title: "Social-first production", text: "Short-form video, photography and campaign creative made to feel native to the platform." },
