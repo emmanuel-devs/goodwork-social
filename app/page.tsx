@@ -1,4 +1,5 @@
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, Sparkles } from "lucide-react";
+import MotionEnhancer from "./MotionEnhancer";
 
 const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "https://your-ghl-booking-link.example";
 const services = [
@@ -24,6 +25,7 @@ const testimonials = [
 
 export default function Home() {
   return <main id="top">
+    <MotionEnhancer />
     <header className="site-header shell">
       <a href="#top" className="brand" aria-label="Goodwork Social home"><span className="brand-mark">gw<span>•</span></span><span className="brand-name">goodwork<span>social studio</span></span></a>
       <nav className="main-nav" aria-label="Main navigation"><a href="#services">Services</a><a href="#work">Selected work</a><a href="#about">Our approach</a><a href="#faq">FAQs</a></nav>
