@@ -1,147 +1,63 @@
-import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, MoveUpRight } from "lucide-react";
+import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, Sparkles } from "lucide-react";
 
 const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "#contact";
-
 const services = [
-  { number: "01", title: "Strategy that gives content a job", description: "Audience, positioning and practical content pillars. Every post starts with a reason, not a calendar slot.", label: "PLAN" },
-  { number: "02", title: "Production with a point of view", description: "Short-form video, photography and campaign assets that sound and look like the business behind them.", label: "MAKE" },
-  { number: "03", title: "Social that stays switched on", description: "Publishing, community management and useful reporting that helps the next round work harder.", label: "GROW" },
+  { tag: "THINK", icon: "↗", title: "Strategy & direction", text: "Find the clearest story, the right audience and the content pillars worth showing up for." },
+  { tag: "MAKE", icon: "✳", title: "Social-first production", text: "Short-form video, photography and campaign creative made to feel native to the platform." },
+  { tag: "CONNECT", icon: "◎", title: "Publishing & community", text: "A consistent presence, thoughtful replies and a feedback loop that makes the next month smarter." }
 ];
-
 const projects = [
-  { number: "01", category: "Hospitality / Content system", title: "A better seat at the table", description: "A content direction built around the people, rituals and details that make a neighbourhood restaurant memorable.", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1500&q=85", alt: "Restaurant dining room set for service", tone: "project-blue", format: "STORY / 01" },
-  { number: "02", category: "Wellness / Brand storytelling", title: "Care you can see", description: "Turning a considered wellness experience into a clear story before a customer ever walks through the door.", image: "https://images.unsplash.com/photo-1540555700478-4be289fbece7?auto=format&fit=crop&w=1200&q=85", alt: "Quiet wellness interior with natural materials", tone: "project-orange", format: "STORY / 02" },
-  { number: "03", category: "Independent makers / Founder content", title: "Made by real hands", description: "A founder-led content system that puts craft, process and the person behind the product in focus.", image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1500&q=85", alt: "Creative maker working at a desk", tone: "project-lilac", format: "STORY / 03" },
+  { brand: "Morrow House", type: "Hospitality · Content system", title: "Make a place feel like a plan.", text: "Chef stories, small rituals and a recognisable visual language turn a neighbourhood restaurant into more than a booking.", image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1500&q=85", alt: "Warm restaurant interior prepared for dinner service", metric: "+186%", label: "sample content saves", className: "morrow" },
+  { brand: "Forma Wellbeing", type: "Wellness · Brand storytelling", title: "Make the feeling tangible.", text: "A calm, human content world that answers the questions people have before their first session.", image: "https://images.unsplash.com/photo-1540555700478-4be289fbece7?auto=format&fit=crop&w=1300&q=85", alt: "Peaceful wellness space with natural materials", metric: "+48%", label: "sample profile visits", className: "forma" },
+  { brand: "Sunday Objects", type: "Independent makers · Founder-led", title: "Put the hands back in handmade.", text: "A founder-led series built around process, material and the tiny details that make a product worth caring about.", image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1500&q=85", alt: "Maker's desk with notebooks and creative tools", metric: "2.1×", label: "sample watch time", className: "sunday" }
 ];
-
-const principles = [
-  ["Useful beats busy", "We choose the work that helps people understand, trust or remember your business."],
-  ["Your voice stays yours", "We build from what makes you recognisable, not whatever is trending this week."],
-  ["Learning is part of the work", "We look at what connects, what falls flat and what deserves another go."],
+const faqs = [
+  ["What kind of businesses do you work with?", "Independent and growing businesses with something meaningful to offer. The best work starts with a real story, a clear audience and a willingness to collaborate."],
+  ["Do you only create content, or manage social too?", "Both are possible. We can shape strategy and produce assets, or support publishing, community management and learning from the response."],
+  ["How does a project begin?", "With a conversation about your business, what you need social to do and what is getting in the way. From there, we can recommend a focused project or ongoing partnership."],
+  ["Can you work with our in-house team?", "Absolutely. We can work alongside your team, fill a production gap or help build a repeatable content system."]
+];
+const testimonials = [
+  { quote: "They found the story we had been trying to explain for months. Suddenly, the content felt like us.", name: "Amara Ellis", role: "Founder, Morrow House", initials: "AE" },
+  { quote: "The plan gave us structure without making the brand feel over-produced. It finally feels consistent.", name: "Nia Carter", role: "Creative Director, Sunday Objects", initials: "NC" }
 ];
 
 export default function Home() {
-  return (
-    <main id="top">
-      <header className="site-header shell">
-        <a href="#top" className="brand" aria-label="Goodwork Social home">
-          <span className="brand-mark">gw<span>•</span></span>
-          <span className="brand-name">goodwork<span>social studio</span></span>
-        </a>
-        <nav className="main-nav" aria-label="Main navigation">
-          <a href="#services">What we do</a>
-          <a href="#work">Work</a>
-          <a href="#approach">Our approach</a>
-        </nav>
-        <a className="header-cta" href={booking}>Start a project <ArrowUpRight size={16} /></a>
-      </header>
+  return <main id="top">
+    <header className="site-header shell">
+      <a href="#top" className="brand" aria-label="Goodwork Social home"><span className="brand-mark">gw<span>•</span></span><span className="brand-name">goodwork<span>social studio</span></span></a>
+      <nav className="main-nav" aria-label="Main navigation"><a href="#services">Services</a><a href="#work">Selected work</a><a href="#about">Our approach</a><a href="#faq">FAQs</a></nav>
+      <a className="header-cta" href={booking}>Book a conversation <ArrowUpRight size={15}/></a>
+      <details className="mobile-nav"><summary aria-label="Open navigation"><span></span><span></span></summary><nav aria-label="Mobile navigation"><a href="#services">Services</a><a href="#work">Selected work</a><a href="#about">Our approach</a><a href="#voices">Client voices</a><a href="#faq">FAQs</a><a href={booking}>Book a conversation ↗</a></nav></details>
+    </header>
 
-      <section className="hero shell">
-        <div className="hero-topline"><span className="live-dot" /> Independent social studio <span className="topline-rule" /> Strategy / Content / Community</div>
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow blue-label">Good work, properly told.</p>
-            <h1>Make people<br /> <span>get</span> your business.</h1>
-            <p className="hero-intro">We help ambitious businesses turn the work they do every day into social content people understand, remember and want to come back to.</p>
-            <div className="hero-actions">
-              <a className="button-primary" href={booking}>Let’s talk about it <ArrowUpRight size={17} /></a>
-              <a className="button-quiet" href="#work">See how we think <ArrowDownRight size={17} /></a>
-            </div>
-            <div className="hero-footnote"><span className="footnote-index">01—03</span> Find the story. Make the work. Keep learning.</div>
-          </div>
-          <div className="hero-art" aria-label="Social content planning board">
-            <div className="art-topline"><span>THE CONTENT DESK</span><span>FIELD NOTES / 001</span></div>
-            <div className="art-photo-main">
-              <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1300&q=85" alt="Creative team discussing work around a table" fetchPriority="high" />
-              <span className="image-sticker">REAL PEOPLE<br />REAL POINT OF VIEW</span>
-            </div>
-            <div className="art-bottom-grid">
-              <div className="art-note note-blue"><span className="note-kicker">01 / THE WHY</span><strong>Be clear<br />before clever.</strong><ArrowUpRight size={20} /></div>
-              <div className="art-note note-orange"><span className="note-kicker">02 / THE WHAT</span><div className="mini-bars"><i /><i /><i /><i /><i /></div><strong>Make it<br />mean something.</strong></div>
-              <div className="art-caption"><span className="caption-symbol">↗</span><span>Good content starts<br />with paying attention.</span></div>
-            </div>
-            <div className="art-index">GW / 2026</div>
-          </div>
-        </div>
-        <div className="client-strip"><span>MADE FOR BUSINESSES WITH SOMETHING REAL TO SAY</span><div><b>STRATEGY</b><i /> <b>PRODUCTION</b><i /> <b>SOCIAL</b><i /> <b>COMMUNITY</b></div></div>
-      </section>
+    <section className="hero shell">
+      <div className="hero-topline"><span className="live-dot"/> Independent social studio <span className="topline-rule"/> Strategy · Content · Community</div>
+      <div className="hero-grid">
+        <div className="hero-copy"><p className="eyebrow">Good work, properly told.</p><h1>We make your work <em>mean</em> something online.</h1><p className="hero-intro">A social creative partner for businesses with something real to say. We turn what makes you good into content people notice, understand and remember.</p><div className="hero-actions"><a className="button-primary" href={booking}>Let’s talk <ArrowUpRight size={17}/></a><a className="button-quiet" href="#work">Explore the work <ArrowDownRight size={17}/></a></div><div className="hero-proof"><div className="avatar-stack"><span>MH</span><span>FW</span><span>SO</span></div><p><strong>Built around real stories.</strong><br/>Made for the people you want to reach.</p></div></div>
+        <div className="hero-art"><div className="art-heading"><span>GOODWORK / CREATIVE OFFICE</span><span>ISSUE 01</span></div><div className="hero-photo"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=85" alt="Creative team sharing ideas around a table" fetchPriority="high"/><span className="photo-stamp">THE STORY<br/>IS ALREADY THERE.</span></div><div className="hero-art-bottom"><div><span className="micro-label">START WITH</span><strong>What makes<br/>you different.</strong></div><div className="scribble"><Sparkles size={19}/><span>Strategy first.<br/>Good work always.</span></div></div></div>
+      </div>
+      <div className="hero-ribbon"><span>GOODWORK IS FOR</span><div><b>THE PEOPLE BEHIND THE BUSINESS</b><i/><b>THE DETAILS OTHERS MISS</b><i/><b>THE STORIES WORTH SHARING</b></div></div>
+    </section>
 
-      <section className="services-section" id="services">
-        <div className="shell">
-          <div className="section-heading services-heading">
-            <div><p className="eyebrow">01 / What we do</p><span className="heading-side-note">Less posting for the sake of posting.<br />More content with a clear purpose.</span></div>
-            <h2>Good content<br />does <span>a job.</span></h2>
-          </div>
-          <div className="service-list">
-            {services.map((service) => (
-              <article className="service-row" key={service.number}>
-                <span className="service-number">{service.number}</span>
-                <div className="service-title-wrap"><h3>{service.title}</h3><span className="service-label">{service.label}</span></div>
-                <p>{service.description}</p>
-                <ArrowUpRight className="service-arrow" size={21} />
-              </article>
-            ))}
-          </div>
-          <div className="service-bottomline"><span>ONE PARTNER, FROM FIRST IDEA TO THE POST-PUBLISH REVIEW.</span><a href={booking}>Talk through what you need <ArrowRight size={15} /></a></div>
-        </div>
-      </section>
+    <section className="trust-section"><div className="shell trust-inner"><p className="eyebrow">A few good company names</p><div className="brand-wall"><span className="wordmark morrow-logo">morrow<span>house</span></span><span className="wordmark forma-logo">FORMA<span> / WELLBEING</span></span><span className="wordmark sunday-logo">sunday objects.</span><span className="wordmark common-logo">COMMON GROUND</span><span className="wordmark goodfolk-logo">goodfolk<span>®</span></span></div></div></section>
 
-      <section className="approach-section" id="approach">
-        <div className="shell approach-grid">
-          <div className="approach-heading">
-            <p className="eyebrow">02 / The way we work</p>
-            <h2>Good work<br />is <span>thought through.</span></h2>
-            <p>We keep the process straightforward, collaborative and connected to what your business actually needs.</p>
-            <a className="approach-link" href={booking}>Meet your next creative partner <ArrowUpRight size={16} /></a>
-          </div>
-          <div className="approach-steps">
-            <article><span className="step-no">01</span><div><h3>Get close to the business</h3><p>We learn what you do, who it matters to and why people choose you.</p></div><span className="step-tag">LISTEN</span></article>
-            <article><span className="step-no">02</span><div><h3>Build a clear content system</h3><p>We turn the strongest stories into a practical plan and make the assets to bring it to life.</p></div><span className="step-tag">MAKE</span></article>
-            <article><span className="step-no">03</span><div><h3>Publish, learn, improve</h3><p>We stay curious about the response and use it to make the next round more useful.</p></div><span className="step-tag">REFINE</span></article>
-          </div>
-        </div>
-      </section>
+    <section className="results-section shell"><div className="results-intro"><p className="eyebrow">The work should move something.</p><h2>Not just more posts.<br/><em>More of a point.</em></h2><p>Strong social starts with a clear idea. Then we make it easy to recognise, worth spending time with and useful to the business behind it.</p></div><div className="results-board"><div className="results-board-head"><span>CAMPAIGN SNAPSHOTS</span><span>ILLUSTRATIVE CONCEPT DATA</span></div>{projects.map((p) => <div className="result-row" key={p.brand}><div><span className="result-brand">{p.brand.toUpperCase()}</span><strong>{p.metric}</strong><p>{p.label}</p></div><div className="mini-chart"><i/><i/><i/><i/><i/><i/><i/><i/></div><span className="result-arrow">↗</span></div>)}<p className="data-footnote">Illustrative sample figures created to demonstrate campaign reporting, not verified client results.</p></div></section>
 
-      <section className="work-section shell" id="work">
-        <div className="work-heading">
-          <div><p className="eyebrow">03 / Selected thinking</p><h2>Different businesses.<br /><span>Different stories.</span></h2></div>
-          <p>We don’t believe every brand needs the same content formula. These concept projects show how the approach can change with the business.</p>
-        </div>
-        <div className="project-grid">
-          {projects.map((project, index) => (
-            <article className={`project-card ${project.tone} project-${index + 1}`} key={project.number}>
-              <a className="project-image" href="#contact" aria-label={`Discuss a project like ${project.title}`}>
-                <img src={project.image} alt={project.alt} loading="lazy" />
-                <span className="project-format">{project.format}</span>
-                <span className="project-open"><MoveUpRight size={20} /></span>
-              </a>
-              <div className="project-meta"><span>{project.category}</span><span>{project.number}</span></div>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-            </article>
-          ))}
-        </div>
-        <div className="concept-note"><span className="concept-mark">i</span><p>These are illustrative portfolio concepts, not commissioned client projects. No client outcomes or performance figures are implied.</p></div>
-      </section>
+    <section className="services-section" id="services"><div className="shell"><div className="section-heading"><div><p className="eyebrow">What we bring to the table</p><p className="heading-side-note">One thoughtful partner, from the first useful question to the final edit.</p></div><h2>Make every post<br/>earn its <em>place.</em></h2></div><div className="service-grid">{services.map((s) => <article className="service-card" key={s.title}><span className="service-tag">{s.tag}</span><div className="service-icon">{s.icon}</div><h3>{s.title}</h3><p>{s.text}</p><a href={booking}>Let’s talk about it <ArrowUpRight size={15}/></a></article>)}</div></div></section>
 
-      <section className="beliefs-section">
-        <div className="shell beliefs-grid">
-          <div><p className="eyebrow">04 / What we believe</p><h2>Never just<br /><span>fill the feed.</span></h2></div>
-          <div className="belief-list">
-            {principles.map(([title, description], index) => <article key={title}><span>0{index + 1}</span><div><h3>{title}</h3><p>{description}</p></div><Check size={19} /></article>)}
-          </div>
-        </div>
-      </section>
+    <section className="work-section shell" id="work"><div className="work-heading"><div><p className="eyebrow">Selected concepts</p><h2>Different businesses.<br/><em>Different stories.</em></h2></div><p>Three fictional brands. Three different challenges. One belief: good content starts by paying attention to what makes a business itself.</p></div><div className="project-grid">{projects.map((p) => <article className={"project-card " + p.className} key={p.brand}><div className="project-image"><img src={p.image} alt={p.alt} loading="lazy"/><span className="project-brand">{p.brand}</span><span className="project-metric"><strong>{p.metric}</strong><small>{p.label}</small></span></div><div className="project-meta"><span>{p.type}</span><span>CONCEPT CAMPAIGN</span></div><h3>{p.title}</h3><p>{p.text}</p><a className="text-link" href={booking}>Build a story like this <ArrowUpRight size={15}/></a></article>)}</div></section>
 
-      <section className="contact-section shell" id="contact">
-        <div className="contact-label"><span className="live-dot" /> GOT SOMETHING GOOD GOING?</div>
-        <div className="contact-grid"><h2>Let’s make<br />it <span>clear.</span></h2><div className="contact-copy"><p>Tell us about the business, the audience you want to reach and what you want people to understand. We’ll start there.</p><a className="button-primary" href={booking}>Start a conversation <ArrowUpRight size={17} /></a><span className="contact-small">NO BIG PITCH. JUST A GOOD FIRST CONVERSATION.</span></div></div>
-      </section>
+    <section className="approach-section" id="about"><div className="shell approach-grid"><div className="approach-heading"><p className="eyebrow">How we work</p><h2>Clear thinking.<br/><em>Good making.</em></h2><p>We get close to the business before we reach for the camera. That’s how the content feels specific instead of interchangeable.</p><a className="button-light" href={booking}>Meet your creative partner <ArrowUpRight size={16}/></a></div><div className="approach-steps"><article><span className="step-no">01</span><div><h3>Get close to the business</h3><p>Understand the people, the product and the reason customers choose you.</p></div><span className="step-tag">LISTEN</span></article><article><span className="step-no">02</span><div><h3>Find the story worth telling</h3><p>Turn the strongest ideas into a clear direction, then make content with a point of view.</p></div><span className="step-tag">CREATE</span></article><article><span className="step-no">03</span><div><h3>Publish, learn, improve</h3><p>Pay attention to what people respond to and use it to shape the next round.</p></div><span className="step-tag">REFINE</span></article></div></div></section>
 
-      <footer className="site-footer">
-        <div className="shell footer-main"><a href="#top" className="brand footer-brand"><span className="brand-mark">gw<span>•</span></span><span className="brand-name">goodwork<span>social studio</span></span></a><p>Thoughtful social for businesses doing good work.</p><a className="footer-top" href="#top">Back to top ↑</a></div>
-        <div className="shell footer-bottom"><span>GOODWORK SOCIAL STUDIO</span><span>PORTFOLIO CONCEPT / 2026</span><span>STRATEGY · CONTENT · COMMUNITY</span></div>
-      </footer>
-    </main>
-  );
+    <section className="voices-section shell" id="voices"><div className="voices-heading"><p className="eyebrow">A good working relationship</p><h2>Good work is<br/><em>better together.</em></h2><span className="quote-mark">“</span></div><div className="testimonial-grid">{testimonials.map((t) => <figure className="testimonial-card" key={t.name}><div className="quote-stars">★★★★★ <span>CREATIVE PARTNERSHIP</span></div><blockquote>“{t.quote}”</blockquote><figcaption><span className="testimonial-avatar">{t.initials}</span><span><strong>{t.name}</strong><small>{t.role}</small></span><ArrowUpRight size={17}/></figcaption></figure>)}</div><p className="testimonial-note">Sample testimonials for the fictional agency concept.</p></section>
+
+    <section className="packages-section"><div className="shell"><div className="packages-heading"><p className="eyebrow">Ways to work together</p><h2>Start where you are.<br/><em>Build from there.</em></h2><p>Focused support when you need a clear answer, or an ongoing partner to keep the good work moving.</p></div><div className="package-grid"><article className="package-card"><span className="package-type">THE STARTING POINT</span><h3>Clarity Session</h3><p>For a business that needs direction before it needs more content.</p><ul><li><Check size={15}/> Social presence review</li><li><Check size={15}/> Audience and message direction</li><li><Check size={15}/> Practical content roadmap</li></ul><a href={booking}>Talk through the challenge <ArrowUpRight size={15}/></a></article><article className="package-card package-featured"><span className="package-type">THE CREATIVE PARTNER</span><span className="package-pill">ONGOING SUPPORT</span><h3>Content Partnership</h3><p>For teams ready to show up consistently with a recognisable point of view.</p><ul><li><Check size={15}/> Monthly content planning</li><li><Check size={15}/> Creative production and editing</li><li><Check size={15}/> Publishing and learning loop</li></ul><a href={booking}>Build a plan together <ArrowUpRight size={15}/></a></article><article className="package-card"><span className="package-type">THE BIGGER MOMENT</span><h3>Campaign Sprint</h3><p>For a launch, a new offer or a story that deserves a focused push.</p><ul><li><Check size={15}/> Campaign concept and direction</li><li><Check size={15}/> A coordinated content set</li><li><Check size={15}/> Creative review and next steps</li></ul><a href={booking}>Plan a campaign <ArrowUpRight size={15}/></a></article></div><p className="package-note">Each scope is shaped around the business, timeline and work required. We’ll talk through fit before recommending a package.</p></div></section>
+
+    <section className="faq-section shell" id="faq"><div className="faq-heading"><p className="eyebrow">A few useful answers</p><h2>Before we<br/><em>get started.</em></h2><p>Still have a question? Start a conversation and we’ll take it from there.</p><a className="text-link" href={booking}>Ask us directly <ArrowUpRight size={15}/></a></div><div className="faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div></section>
+
+    <section className="contact-section shell" id="contact"><div className="contact-card"><div className="contact-label"><span className="live-dot"/> HAVE A GOOD THING GOING?</div><div className="contact-grid"><h2>Let’s make<br/><em>it matter.</em></h2><div className="contact-copy"><p>Tell us what you’re building, who you want to reach and what you want people to understand. We’ll start with a good conversation.</p><a className="button-primary" href={booking}>Book a free call <ArrowUpRight size={17}/></a><span className="contact-small">NO BIG PITCH. JUST A GOOD FIRST CONVERSATION.</span></div></div></div></section>
+
+    <footer className="site-footer"><div className="shell footer-main"><a href="#top" className="brand footer-brand"><span className="brand-mark">gw<span>•</span></span><span className="brand-name">goodwork<span>social studio</span></span></a><p>Thoughtful social for businesses doing good work.</p><div className="footer-links"><a href="#services">Services</a><a href="#work">Selected work</a><a href="#about">Our approach</a><a href="#faq">FAQs</a><a href={booking}>Get in touch ↗</a></div></div><div className="shell footer-bottom"><span>GOODWORK SOCIAL STUDIO</span><span>INDEPENDENT CREATIVE PARTNER</span><span>CONCEPT WEBSITE · 2026</span></div><div className="shell footer-disclosure">Portfolio concept featuring fictional brands, illustrative campaign metrics and sample testimonials, created to demonstrate creative direction and web design.</div></footer>
+  </main>;
 }
