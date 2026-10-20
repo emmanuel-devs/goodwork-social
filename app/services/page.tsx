@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
 };
 
-const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "https://your-ghl-booking-link.example";
+const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "/contact#enquiry";
 
 const services = [
   { no: "01", label: "THINK", title: "Social strategy & direction", icon: Compass, intro: "A clearer point of view, before another post goes live.", body: "We get under the surface of your business, understand the people you need to reach and turn that into a direction your content can actually follow.", items: ["Audience and channel review", "Content pillars and creative direction", "Tone of voice and messaging cues", "A practical content roadmap"], outcome: "A plan that helps your team make better decisions, not a document that sits in a folder." },
