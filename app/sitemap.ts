@@ -6,5 +6,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "https://goodwork-social.vercel.app/services", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: "https://goodwork-social.vercel.app/work", lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: "https://goodwork-social.vercel.app/about", lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    { url: "https://goodwork-social.vercel.app/contact", lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
   ];
 }
