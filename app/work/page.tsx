@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, MoveUpRight } from "lucide-react";
 import MotionEnhancer from "../MotionEnhancer";
 
-const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "https://your-ghl-booking-link.example";
+const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "/contact#enquiry";
 
 export const metadata: Metadata = {
   title: "Selected Work & Creative Case Studies",
