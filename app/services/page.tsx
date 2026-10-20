@@ -1,5 +1,18 @@
+import type { Metadata } from "next";
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, Clapperboard, Compass, MessageCircle, Sparkles, Target } from "lucide-react";
 import MotionEnhancer from "../MotionEnhancer";
+
+export const metadata: Metadata = {
+  title: "Social Media Services & Content Strategy",
+  description: "Explore Goodwork Social's services: social strategy, social-first content production, publishing, community and campaign creative for growing businesses.",
+  alternates: { canonical: "/services" },
+  openGraph: {
+    title: "Social Media Services | Goodwork Social",
+    description: "Thoughtful strategy, distinctive content and community support for businesses doing good work.",
+    url: "/services",
+    type: "website",
+  },
+};
 
 const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "https://your-ghl-booking-link.example";
 
