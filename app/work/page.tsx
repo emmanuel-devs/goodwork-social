@@ -57,9 +57,9 @@ export default function WorkPage() {
     <MotionEnhancer />
     <header className="site-header shell">
       <a href="/" className="brand" aria-label="Goodwork Social home"><span className="brand-mark">gw<span>•</span></span><span className="brand-name">goodwork<span>social studio</span></span></a>
-      <nav className="main-nav" aria-label="Main navigation"><a href="/services">Services</a><a href="/work" aria-current="page">Selected work</a><a href="/#about">Our approach</a><a href="/#faq">FAQs</a></nav>
+      <nav className="main-nav" aria-label="Main navigation"><a href="/services">Services</a><a href="/work" aria-current="page">Selected work</a><a href="/about">Our approach</a><a href="/#faq">FAQs</a></nav>
       <a className="header-cta" href={booking}>Book a conversation <ArrowUpRight size={15}/></a>
-      <details className="mobile-nav"><summary aria-label="Open navigation"><span></span><span></span></summary><nav aria-label="Mobile navigation"><a href="/services">Services</a><a href="/work">Selected work</a><a href="/#about">Our approach</a><a href="/#voices">Client voices</a><a href="/#faq">FAQs</a><a href={booking}>Book a conversation ↗</a></nav></details>
+      <details className="mobile-nav"><summary aria-label="Open navigation"><span></span><span></span></summary><nav aria-label="Mobile navigation"><a href="/services">Services</a><a href="/work">Selected work</a><a href="/about">Our approach</a><a href="/#voices">Client voices</a><a href="/#faq">FAQs</a><a href={booking}>Book a conversation ↗</a></nav></details>
     </header>
 
     <section className="work-hero shell">
@@ -94,6 +94,6 @@ export default function WorkPage() {
 
     <section className="work-end shell"><div className="work-end-card"><div className="contact-label"><span className="live-dot"/> YOUR BUSINESS IS ITS OWN STORY</div><div className="work-end-grid"><h2>Let’s find<br/><em>your point of view.</em></h2><div><p>Tell us what you do, who you want to reach and what you want people to remember. We’ll find a useful place to begin.</p><a className="button-primary" href={booking}>Start a conversation <ArrowUpRight size={17}/></a><span className="contact-small">GOOD THINKING FIRST. GOOD CONTENT NEXT.</span></div></div></div></section>
 
-    <footer className="site-footer"><div className="shell footer-main"><a href="/" className="brand footer-brand"><span className="brand-mark">gw<span>•</span></span><span className="brand-name">goodwork<span>social studio</span></span></a><p>Thoughtful social for businesses doing good work.</p><div className="footer-links"><a href="/services">Services</a><a href="/work">Selected work</a><a href="/#about">Our approach</a><a href="/#faq">FAQs</a><a href={booking}>Get in touch ↗</a></div></div><div className="shell footer-bottom"><span>GOODWORK SOCIAL STUDIO</span><span>INDEPENDENT CREATIVE PARTNER</span><span>STRATEGY · CONTENT · COMMUNITY</span></div></footer>
+    <footer className="site-footer"><div className="shell footer-main"><a href="/" className="brand footer-brand"><span className="brand-mark">gw<span>•</span></span><span className="brand-name">goodwork<span>social studio</span></span></a><p>Thoughtful social for businesses doing good work.</p><div className="footer-links"><a href="/services">Services</a><a href="/work">Selected work</a><a href="/about">Our approach</a><a href="/#faq">FAQs</a><a href={booking}>Get in touch ↗</a></div></div><div className="shell footer-bottom"><span>GOODWORK SOCIAL STUDIO</span><span>INDEPENDENT CREATIVE PARTNER</span><span>STRATEGY · CONTENT · COMMUNITY</span></div></footer>
   </main>;
 }
