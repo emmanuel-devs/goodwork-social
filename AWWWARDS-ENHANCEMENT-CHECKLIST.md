@@ -137,3 +137,11 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [ ] Confirm the preconnect hint and image loading do not regress performance; run Lighthouse after deployment
 - [ ] Manually review layout at narrow widths and enlarged text on all five main routes
 - [ ] Recheck reduced-motion behaviour and page transitions on all routes
+
+
+## Contact journey trust fix (2026-10-21)
+- [x] Remove the fallback placeholder recipient `test@example.com` from the contact form
+- [x] Make the unavailable state explicit when `NEXT_PUBLIC_CONTACT_EMAIL` is not configured
+- [x] Keep the submit action disabled until a real contact email is configured
+- [ ] Confirm the correct production contact email is set in Vercel environment variables
+- [ ] Test the enquiry flow end-to-end using the configured inbox
