@@ -715,3 +715,9 @@ html.hero-entrance-ready .hero-art .hero-photo img{
     transition: none !important;
   }
 }
+
+
+/* Keyboard access: skip repetitive navigation and keep focus visible site-wide. */
+.skip-link{position:fixed;left:16px;top:12px;z-index:1000;padding:12px 16px;background:var(--dark);color:var(--white);font-size:12px;font-weight:800;transform:translateY(calc(-100% - 20px));transition:transform .2s ease;box-shadow:0 6px 20px #25272220}
+.skip-link:focus{transform:translateY(0);outline:3px solid var(--coral);outline-offset:3px}
+:where(a,button,summary,input,select,textarea):focus-visible{outline:3px solid var(--ink);outline-offset:4px}
