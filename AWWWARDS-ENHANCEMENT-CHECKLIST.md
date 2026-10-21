@@ -36,6 +36,7 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Add close button, Escape-key support, focus trapping, focus restoration, and expanded/hidden ARIA state
 - [x] Add responsive menu layout and keyboard focus styles; verify small-screen and zoom behaviour in manual QA
 - [x] Add a live local-time display in the overlay using the visitor’s browser time zone
+- [x] Restore the header menu trigger to the right side, immediately before the booking CTA; retain the compact “Menu” label as a deliberate usability cue
 
 ### 4. Conversion support
 - [ ] Add a floating “Ready to talk?” CTA after the hero on long pages
