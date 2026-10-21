@@ -25,7 +25,7 @@ const testimonials = [
 ];
 
 export default function Home() {
-  return <main id="top">
+  return <main id="top" tabIndex={-1}>
     <MotionEnhancer />
     <header className="site-header shell">
       <a href="#top" className="brand" aria-label="Goodwork Social home"><span className="brand-mark">gw<span>•</span></span><span className="brand-name">goodwork<span>social studio</span></span></a>
