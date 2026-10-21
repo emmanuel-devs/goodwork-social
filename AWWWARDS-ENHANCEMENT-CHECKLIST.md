@@ -145,3 +145,12 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Keep the submit action disabled until a real contact email is configured
 - [ ] Confirm the correct production contact email is set in Vercel environment variables
 - [ ] Test the enquiry flow end-to-end using the configured inbox
+
+
+## Interactive social proof experience (planned, not yet deployed)
+- [ ] Replace invented campaign metrics with an honest interactive demo until verified results are available
+- [ ] Add count-up animation with reduced-motion support
+- [ ] Add interactive metric chart with selectable reporting window
+- [ ] Add clearly identified conversation preview, not fabricated client evidence
+- [ ] Remove fictional testimonials and invented performance claims from homepage
+- [ ] Verify Vercel build and review mobile/desktop layouts
