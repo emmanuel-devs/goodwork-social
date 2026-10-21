@@ -123,6 +123,7 @@ export default function MotionEnhancer() {
     document.documentElement.classList.add("hero-entrance-pending");
 
     targets.forEach((element, index) => {
+      if (heroTargetSet.has(element)) return;
       element.classList.add("motion-reveal");
       const siblings = element.parentElement
         ? Array.from(element.parentElement.children).filter((child) => child.classList.contains("motion-reveal"))
