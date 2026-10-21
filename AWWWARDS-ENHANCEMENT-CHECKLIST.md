@@ -72,3 +72,12 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - Preserve the existing site and its routes; avoid unnecessary rewrites.
 - Never describe concept metrics as achieved results. Label targets and illustrative examples clearly.
 - A task is complete only after the implementation is inspected and the relevant checks pass. A GitHub commit alone does not mean the deployed site has been verified.
+
+
+## Responsive navigation correction (2026-10-21)
+- [x] Restore desktop navigation links on wide screens
+- [x] Hide desktop navigation links on compact/mobile screens
+- [x] Show a stylized three-line hamburger only on compact/mobile screens, with no “Menu” text
+- [x] Keep hamburger positioned immediately before “Book a Conversation” on mobile
+- [ ] Verify latest Vercel deployment is Ready
+- [ ] Manually verify desktop and mobile header layouts on the live site
