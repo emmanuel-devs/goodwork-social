@@ -18,7 +18,13 @@ export default function FloatingContactCTA() {
     };
 
     const observer = new IntersectionObserver((entries) => {
-      nearEnd = entries.some((entry) => entry.isIntersecting);
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          visibleEndSections.add(entry.target);
+        } else {
+          visibleEndSections.delete(entry.target);
+        }
+      });
       updateVisibility();
     }, { rootMargin: "-12% 0px -12% 0px", threshold: 0 });
 
