@@ -41,10 +41,10 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Keep the mobile hamburger icon-only, with the booking CTA immediately before it and the hamburger at the far right
 
 ### 4. Conversion support
-- [ ] Add a floating “Ready to talk?” CTA after the hero on long pages
-- [ ] Connect it to the existing Contact page / enquiry section
-- [ ] Ensure it does not cover content, keyboard focus, or mobile controls
-- [ ] Check it does not compete with existing booking and contact CTAs
+- [x] Add a contextual floating “Ready to talk?” CTA after the hero on long pages
+- [x] Connect it to the existing Contact page enquiry section
+- [x] Hide it when closing contact sections or the footer enter view; provide mobile spacing and visible keyboard focus
+- [x] Hide the floating CTA around each page's closing contact section to avoid competing with existing CTAs
 
 ### 5. Optional sound
 - [ ] Defer sound design until the core experience is complete
@@ -90,3 +90,13 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Preserve hover lift and existing click, focus and touch behavior in the implementation
 - [ ] Verify latest Vercel deployment is Ready
 - [ ] Manually test desktop pointer response and confirm mobile behavior remains unchanged
+
+
+## Floating contact CTA (2026-10-21)
+- [x] Show a compact “Ready to talk?” CTA after the visitor scrolls beyond the opening section
+- [x] Link it to the existing /contact#enquiry journey
+- [x] Hide it around each page's closing contact section and footer
+- [x] Add responsive placement, safe-area spacing, and keyboard focus styling
+- [x] Respect reduced-motion preferences
+- [ ] Verify latest Vercel deployment is Ready
+- [ ] Manually test scroll threshold, closing-section handoff, keyboard access, and mobile layout
