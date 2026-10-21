@@ -641,3 +641,20 @@ html.hero-entrance-ready .hero-art .hero-photo img{
     transform: none !important;
   }
 }
+
+/* Clear but quiet disclosure for illustrative portfolio material. */
+.concept-note {
+  max-width: 440px;
+  margin: 15px 0 0;
+  color: var(--muted, #77786e);
+  font-size: 10px;
+  line-height: 1.7;
+}
+.results-board .concept-note {
+  border-top: 1px solid var(--line, #e7e2d8);
+  padding-top: 12px;
+}
+.voices-heading .concept-note {
+  max-width: 330px;
+  margin-top: 20px;
+}
