@@ -164,3 +164,18 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Use tabular numerals and responsive sizing for stable, legible counts
 - [ ] Confirm Vercel build succeeds
 - [ ] Test trigger, final values and mobile layout on live deployment
+
+
+## Editorial portfolio case studies (2026-10-21)
+- [x] Create dedicated routes for Morrow House, Forma Wellbeing and Sunday Objects
+- [x] Give each concept a distinct art direction, palette and editorial layout
+- [x] Explain the business challenge, creative idea and visual language for each project
+- [x] Add tailored content pillars, sample formats and a campaign concept moment
+- [x] Add responsive layouts for mobile, tablet and desktop
+- [x] Respect reduced-motion preferences on the case-study pages
+- [x] Link the Selected Work cards to their dedicated case-study pages
+- [ ] Verify Vercel build and deployment status
+- [ ] Review all three live case-study pages on mobile for image crops, spacing and legibility
+- [ ] Review all three pages on desktop and confirm the distinct art direction reads clearly
+- [ ] Test project navigation, booking links and keyboard focus
+- [ ] Check external image loading and performance on the live deployment
