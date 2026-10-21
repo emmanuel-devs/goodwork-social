@@ -15,9 +15,9 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const project = caseStudies[params.slug as CaseStudySlug];
-  if (!project) return { title: "Case Study | Goodwork Social" };
+  if (!project) return { title: "Selected Work | Goodwork Social" };
   return {
-    title: project.name + " | Creative Case Study",
+    title: project.name + " | Selected Work",
     description: project.summary,
     alternates: { canonical: "/work/" + params.slug },
     openGraph: { title: project.name + " | Goodwork Social", description: project.summary, images: [project.image] }
@@ -39,8 +39,8 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
     <section className="case-hero shell">
       <div className="case-breadcrumb"><Link href="/work"><ArrowLeft size={14}/> Selected work</Link><span>{project.number} / 03</span></div>
       <div className="case-hero-copy"><p className="eyebrow">{project.category}</p><h1>{project.title}</h1><p className="case-intro">{project.summary}</p></div>
-      <div className="case-hero-image"><img src={project.image} alt={project.alt} fetchPriority="high"/><span className="case-image-stamp">GOODWORK / PROJECT STUDY<br/>{project.category}</span></div>
-      <div className="case-meta-strip"><span>CREATIVE DIRECTION</span><span>CONTENT STRATEGY</span><span>CAMPAIGN SYSTEM</span><span>INDEPENDENT PROJECT STUDY</span></div>
+      <div className="case-hero-image"><img src={project.image} alt={project.alt} fetchPriority="high"/><span className="case-image-stamp">GOODWORK / CREATIVE DIRECTION<br/>{project.category}</span></div>
+      <div className="case-meta-strip"><span>CREATIVE DIRECTION</span><span>CONTENT STRATEGY</span><span>CAMPAIGN SYSTEM</span><span>CONTENT & CAMPAIGN DIRECTION</span></div>
     </section>
 
     <section className="case-thinking shell"><div className="case-section-marker"><span>01</span><span>THE BRIEF</span></div><div className="case-thinking-grid"><h2>What needs<br/>to <em>change?</em></h2><div className="case-thinking-copy"><p className="case-lead">{project.challenge}</p><div className="case-rule"/><p>{project.direction}</p></div></div></section>
@@ -49,7 +49,7 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
 
     <section className="case-system shell"><div className="case-section-marker"><span>02</span><span>THE CONTENT PLAN</span></div><div className="case-system-heading"><h2>One clear idea.<br/><em>More ways to tell it.</em></h2><p>These are repeatable themes the brand can use without every post looking or sounding the same.</p></div><div className="case-pillar-grid">{project.pillars.map((item) => <article key={item[0]} className="case-pillar"><span>{item[0]}</span><h3>{item[1]}</h3><p>{item[2]}</p></article>)}</div><div className="case-format-wrap"><p className="eyebrow">Ways to bring it to life</p><div className="case-format-list">{project.formats.map((format, index) => <div key={format}><span>0{index + 1}</span><p>{format}</p><ArrowUpRight size={16}/></div>)}</div></div></section>
 
-    <section className="case-sample"><div className="shell case-sample-grid"><div className="case-sample-visual"><img src={project.gallery[1][0]} alt={project.gallery[1][1]} loading="lazy"/><span className="case-sample-label">CREATIVE DIRECTION</span><div className="case-sample-overprint"><span>GOODWORK SOCIAL</span><p>{project.sample}</p></div></div><div className="case-sample-copy"><p className="eyebrow">A content idea</p><h2>{project.sample}</h2><p>{project.sampleText}</p><div className="case-sample-caption"><span>FORMAT / SHORT-FORM STORY</span><span>ROLE / BUILD RECOGNITION</span></div></div></div></section>
+    <section className="case-sample"><div className="shell case-sample-grid"><div className="case-sample-visual"><img src={project.gallery[1][0]} alt={project.gallery[1][1]} loading="lazy"/><span className="case-sample-label">CREATIVE DIRECTION</span><div className="case-sample-overprint"><span>GOODWORK SOCIAL</span><p>{project.sample}</p></div></div><div className="case-sample-copy"><p className="eyebrow">A creative direction</p><h2>{project.sample}</h2><p>{project.sampleText}</p><div className="case-sample-caption"><span>FORMAT / SHORT-FORM STORY</span><span>ROLE / BUILD RECOGNITION</span></div></div></div></section>
 
     <section className="case-close shell"><div><p className="eyebrow">The point of the work</p><h2>Specific to the business.<br/><em>Clear in every detail.</em></h2><p>This direction shows how one clear idea can guide the look, tone and rhythm of a brand’s social content.</p></div><div className="case-close-actions"><a className="button-primary" href={booking}>Build a story like this <MoveUpRight size={16}/></a><Link className="text-link" href="/work">Explore the other projects <ArrowRight size={15}/></Link></div></section>
 
