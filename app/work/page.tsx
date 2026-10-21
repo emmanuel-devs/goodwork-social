@@ -55,7 +55,7 @@ const projects = [
 ];
 
 export default function WorkPage() {
-  return <main id="top" className="inner-page work-page">
+  return <main id="top" tabIndex={-1} className="inner-page work-page">
     <MotionEnhancer />
     <WorkPreviewEnhancer />
     <header className="site-header shell">
