@@ -64,7 +64,7 @@ function CountUpMetric({ label, value, index }: { label: string; value: number; 
   observer.observe(node);
   return () => { observer.disconnect(); cancelAnimationFrame(frame); if(timeout) clearTimeout(timeout); };
  },[value,index]);
- return <div className="proof-counter" ref={target}><span className="proof-counter-label">{label}</span><strong aria-label={label+" "+value.toLocaleString("en-US")}>{count.toLocaleString("en-US")}</strong><span className="proof-counter-caption">Illustrative figure <i aria-hidden="true">↗</i></span></div>;
+ return <div className="proof-counter" ref={target}><span className="proof-counter-label">{label}</span><strong aria-label={label+" "+value.toLocaleString("en-US")}>{count.toLocaleString("en-US")}</strong></div>;
 }
 
 function InteractiveProof() {
