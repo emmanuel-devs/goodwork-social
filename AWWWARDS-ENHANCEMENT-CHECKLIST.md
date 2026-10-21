@@ -32,10 +32,10 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [ ] Do not add interactive metric filters unless there is real, clearly sourced data worth filtering
 
 ### 3. Navigation overlay
-- [ ] Replace or enhance the current mobile dropdown with a considered full-screen editorial menu, if it improves the existing design
-- [ ] Include close behaviour, Escape-key support, focus management, and appropriate ARIA state
-- [ ] Keep navigation usable on small screens and at zoomed text sizes
-- [ ] Add a live local time only if it supports the experience rather than distracting from navigation
+- [x] Replace the mobile dropdown and desktop link row with a full-screen editorial navigation overlay across all five routes
+- [x] Add close button, Escape-key support, focus trapping, focus restoration, and expanded/hidden ARIA state
+- [x] Add responsive menu layout and keyboard focus styles; verify small-screen and zoom behaviour in manual QA
+- [x] Add a live local-time display in the overlay using the visitor’s browser time zone
 
 ### 4. Conversion support
 - [ ] Add a floating “Ready to talk?” CTA after the hero on long pages
@@ -49,16 +49,18 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 
 ## Quality assurance and release
 
+- [x] Implement responsive full-screen navigation and visitor-local time display (code committed; deployed build and manual QA still pending)
+
 - [ ] Verify build succeeds
-- [ ] Test home, services, work, about, and contact pages
+- [ ] Test home, services, work, about, and contact pages, including the new full-screen navigation
 - [ ] Verify page-load hero entrances on all five routes (code added; manual visual QA still required)
 - [ ] Verify page-load hero entrances on all five routes (code added; manual visual QA still required)
 - [ ] Test desktop pointer interactions and mobile touch interactions (implementation added; manual device QA still required)
-- [ ] Test keyboard-only navigation and visible focus (focus styling added; manual QA still required)
+- [ ] Test keyboard-only navigation, Escape, focus trapping/restoration, and visible focus (code added; manual QA still required)
 - [ ] Test reduced-motion preferences
 - [ ] Test anchor navigation and scroll behaviour
 - [ ] Re-run Lighthouse / performance checks and compare with baseline
-- [ ] Verify contact and booking journeys
+- [ ] Verify contact and booking journeys, including the menu CTA
 - [ ] Confirm Vercel deployment succeeds before marking changes live
 
 ## Working rules
