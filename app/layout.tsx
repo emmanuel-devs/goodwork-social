@@ -5,14 +5,14 @@ import FloatingContactCTA from "./FloatingContactCTA";
 
 export const metadata: Metadata = {
   title: {
-    default: "Goodwork Social | Make the work worth watching",
+    default: "Goodwork Social | Social strategy, content & creative",
     template: "%s | Goodwork Social",
   },
   description: "A social creative partner for businesses with something real to say. Strategy, social-first content and community built around what makes your business worth choosing.",
   metadataBase: new URL("https://goodwork-social.vercel.app"),
   openGraph: {
     title: "Goodwork Social | Make the work worth watching",
-    description: "Thoughtful social strategy, content and community for businesses doing good work.",
+    description: "Social strategy, distinctive content and creative campaigns for growing businesses.",
     url: "https://goodwork-social.vercel.app",
     siteName: "Goodwork Social",
     type: "website",
