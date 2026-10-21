@@ -8,8 +8,8 @@ import { caseStudyList } from "./projects";
 const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "/contact#enquiry";
 
 export const metadata: Metadata = {
-  title: "Selected Work & Creative Case Studies",
-  description: "Explore project studies across hospitality, wellbeing and independent makers, with the strategy and creative thinking behind each direction.",
+  title: "Selected Work | Goodwork Social",
+  description: "Explore social creative direction, content systems and campaign thinking across hospitality, wellbeing and independent makers.",
   alternates: { canonical: "/work" },
   openGraph: {
     title: "Selected Work | Goodwork Social",
@@ -36,7 +36,7 @@ export default function WorkPage() {
       <div className="work-hero-topline"><span className="live-dot"/> SELECTED WORK <span className="work-hero-rule"/> STRATEGY / CONTENT / CAMPAIGNS</div>
       <div className="work-hero-grid">
         <div className="work-hero-copy"><p className="eyebrow">Every business has its own story.</p><h1>Different businesses.<br/><em>Different stories.</em></h1><p className="work-hero-intro">We start by paying attention. The details that make one business different should shape the way its story looks, sounds and shows up online.</p><a className="button-primary" href="#project-index">Explore the projects <ArrowDownRight size={17}/></a></div>
-        <aside className="work-hero-note"><span className="micro-label">A NOTE ON THE WORK</span><p>These independent project studies show how we translate a business challenge into a distinct creative direction and content system. They are examples of our approach, not reported client engagements.</p><div className="work-hero-note-foot"><span>GOODWORK / STUDIO PRACTICE</span><span>PROJECT STUDIES</span></div></aside>
+        <aside className="work-hero-note"><span className="micro-label">A NOTE ON THE WORK</span><p>A closer look at how strategy, content and campaign direction can give each business a distinct point of view.</p><div className="work-hero-note-foot"><span>GOODWORK / STUDIO PRACTICE</span><span>CREATIVE DIRECTION</span></div></aside>
       </div>
       <div className="work-index-strip"><span>01 / HOSPITALITY</span><span>02 / WELLBEING</span><span>03 / INDEPENDENT MAKERS</span><span>ONE STUDIO, DISTINCT STORIES</span></div>
     </section>
@@ -46,14 +46,14 @@ export default function WorkPage() {
       <div className="work-project-list" aria-label="Selected projects">
         {projects.map((project) => <a className={"work-project-card " + project.tone} href={"/work/"+project.id} key={project.id}>
           <div className="work-project-image"><img src={project.image} alt={project.alt} loading="lazy"/><span className="work-project-number">{project.number} / 03</span><span className="work-project-open"><ArrowUpRight size={18}/></span></div>
-          <div className="work-project-copy"><span className="work-project-category">{project.category}</span><h3>{project.name}</h3><p className="work-project-descriptor">{project.descriptor}</p><p className="work-project-summary">{project.summary}</p><span className="work-project-link">Open case study <ArrowRight size={15}/></span></div>
+          <div className="work-project-copy"><span className="work-project-category">{project.category}</span><h3>{project.name}</h3><p className="work-project-descriptor">{project.descriptor}</p><p className="work-project-summary">{project.summary}</p><span className="work-project-link">View project <ArrowRight size={15}/></span></div>
         </a>)}
       </div>
     </section>
 
     {projects.map((project) => <section className={"work-case-section " + project.tone} id={project.id} key={project.id}>
       <div className="shell work-case-shell">
-        <div className="work-case-topline"><span>{project.number} / CASE NOTES</span><span>{project.category}</span></div>
+        <div className="work-case-topline"><span>{project.number} / CREATIVE DIRECTION</span><span>{project.category}</span></div>
         <div className="work-case-grid">
           <div className="work-case-copy"><p className="eyebrow">The thinking behind it</p><h2>{project.descriptor}</h2><p className="work-case-summary">{project.summary}</p><div className="work-case-rule"/><div className="work-case-block"><span className="micro-label">THE CHALLENGE</span><p>{project.challenge}</p></div><div className="work-case-block"><span className="micro-label">THE CREATIVE DIRECTION</span><p>{project.direction}</p></div></div>
           <div className="work-case-visual"><img src={project.image} alt={project.alt} loading="lazy"/><div className="work-case-caption"><span>CREATIVE NOTE / {project.number}</span><p>{project.note}</p></div></div>
