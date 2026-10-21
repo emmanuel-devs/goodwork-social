@@ -15,11 +15,11 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 ## Implementation checklist
 
 ### 1. Motion foundation
-- [ ] Inspect current CSS reveal and transition rules before changing them
-- [ ] Refine existing reveal timing and stagger; avoid duplicating the current animation system
-- [ ] Decide whether Lenis adds real value; only add it if it does not interfere with native scrolling, anchors, accessibility, or mobile performance
-- [ ] Add subtle magnetic button feedback on fine-pointer desktop devices only
-- [ ] Confirm reduced-motion users receive a clear, usable non-animated experience
+- [x] Inspect current CSS reveal and transition rules before changing them
+- [x] Refine existing reveal timing and stagger; avoid duplicating the current animation system (18px reveal, 650ms transition, 55ms stagger)
+- [ ] Assess Lenis against native scrolling and test whether it adds enough value to justify another dependency
+- [ ] Add subtle magnetic button feedback on fine-pointer desktop devices only (separate follow-up; current pass adds tactile press and focus states)
+- [x] Confirm existing reduced-motion guard and CSS override are present; verify behaviour in release QA
 
 ### 2. Work page interaction
 - [ ] Add a cursor-following project image preview for desktop pointer devices
