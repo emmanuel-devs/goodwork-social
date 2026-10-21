@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SiteMenu from "./SiteMenu";
+import SiteMenu from "../SiteMenu";
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, Clapperboard, Compass, MessageCircle, Sparkles, Target } from "lucide-react";
 import MotionEnhancer from "../MotionEnhancer";
 
