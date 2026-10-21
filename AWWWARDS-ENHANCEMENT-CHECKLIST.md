@@ -179,3 +179,18 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [ ] Review all three pages on desktop and confirm the distinct art direction reads clearly
 - [ ] Test project navigation, booking links and keyboard focus
 - [ ] Check external image loading and performance on the live deployment
+
+
+## Shared case-study data and deployment repair (2026-10-21)
+- [x] Move project content into one shared source at `app/work/projects.ts`
+- [x] Use the shared project records on the homepage, Selected Work page and detail pages
+- [x] Make homepage project cards open their matching detail page
+- [x] Keep each "Build a story like this" CTA linked to the conversation flow
+- [x] Remove the conflicting client directive from the dynamic case-study page so `generateStaticParams` can run on the server
+- [x] Revise case-study copy to use direct, natural phrasing and remove long dashes from the touched project files
+- [x] Standardize the case-study hero and gallery image ratios
+- [x] Keep the portfolio card image ratios consistent across concepts
+- [ ] Confirm the next Vercel production build succeeds
+- [ ] Review mobile and desktop card click targets and booking CTAs
+- [ ] Replace temporary stock imagery with custom, art-directed project assets
+- [ ] Check final image crops, load speed and alt text once custom assets are in the repository
