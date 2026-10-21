@@ -113,5 +113,5 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Label campaign figures as sample figures and disclose that they are not verified client results
 - [x] Label testimonial-style quotes as illustrative concepts, not real client testimonials
 - [x] Add restrained disclosure styling that fits the existing visual system
-- [ ] Confirm the Vercel deployment is Ready
+- [x] User confirmed the Vercel deployment succeeded
 - [ ] Review the live homepage on mobile for disclosure placement and readability
