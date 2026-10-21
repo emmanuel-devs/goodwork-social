@@ -40,7 +40,7 @@ export default function AboutPage() {
     </header>
 
     <section className="about-hero shell">
-      <div className="about-hero-topline"><span className="live-dot"/> INDEPENDENT SOCIAL STUDIO <span className="about-hero-rule"/> A POINT OF VIEW, NOT A TEMPLATE</div>
+      <div className="about-hero-topline"><span className="live-dot"/> INDEPENDENT SOCIAL STUDIO <span className="about-hero-rule"/> STRATEGY · CONTENT · COMMUNITY</div>
       <div className="about-hero-grid">
         <div className="about-hero-copy">
           <p className="eyebrow">A small studio. A close working relationship.</p>
@@ -48,13 +48,13 @@ export default function AboutPage() {
           <p className="about-hero-intro">We help businesses find the story only they can tell, then turn it into thoughtful social content with a clear reason to exist.</p>
           <div className="hero-actions"><a className="button-primary" href={booking}>Let’s talk <ArrowUpRight size={17}/></a><a className="button-quiet" href="#point-of-view">Our point of view <ArrowDownRight size={17}/></a></div>
         </div>
-        <aside className="about-hero-note"><span className="about-note-label">THE GOODWORK PRINCIPLE</span><span className="about-note-mark">“</span><p>The content should sound like <em>you,</em> not the internet.</p><div className="about-note-foot"><span>OUR STARTING POINT</span><span>GW / 01</span></div></aside>
+        <aside className="about-hero-note"><span className="about-note-label">THE GOODWORK PRINCIPLE</span><span className="about-note-mark">“</span><p>The content should sound like <em>you,</em> not the internet.</p><div className="about-note-foot"><span>OUR STARTING POINT</span><span>THE STUDIO</span></div></aside>
       </div>
       <div className="about-hero-bottom"><span>STRATEGY BEFORE THE SCROLL</span><span>CHARACTER OVER COPY-PASTE</span><span>GOOD CREATIVE, BUILT WITH CARE</span></div>
     </section>
 
     <section className="about-manifesto" id="point-of-view"><div className="shell about-manifesto-grid">
-      <div className="about-manifesto-visual"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=85" alt="People gathered around a table, sharing ideas and working together" loading="lazy"/><span className="about-image-caption">GOOD IDEAS COME FROM GETTING CLOSER.</span><span className="about-image-index">FIELD NOTES / 001</span></div>
+      <div className="about-manifesto-visual"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1400&q=85" alt="People gathered around a table, sharing ideas and working together" loading="lazy"/><span className="about-image-caption">GOOD IDEAS COME FROM GETTING CLOSER.</span><span className="about-image-index">OUR APPROACH</span></div>
       <div className="about-manifesto-copy"><p className="eyebrow">Our point of view</p><h2>Before the content, there is <em>the business.</em></h2><p>There is a reason someone started it. A way the team does things. A detail customers notice. A question people keep asking. Those things are more useful than chasing every trend.</p><p>Our job is to get close enough to find them, make sense of them and build a creative direction around what is genuinely there.</p><div className="about-manifesto-signoff"><span className="about-signoff-mark">gw<span>•</span></span><span><strong>Less noise. More meaning.</strong><small>THE WAY WE LIKE TO WORK</small></span></div></div>
     </div></section>
 
