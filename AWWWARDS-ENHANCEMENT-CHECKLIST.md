@@ -194,3 +194,15 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [ ] Review mobile and desktop card click targets and booking CTAs
 - [ ] Replace temporary stock imagery with custom, art-directed project assets
 - [ ] Check final image crops, load speed and alt text once custom assets are in the repository
+
+
+## Scroll-linked portfolio image zoom (2026-10-21)
+- [x] Add a scroll-progress zoom to homepage project-card images and Selected Work images
+- [x] Use IntersectionObserver to track only images near the viewport and requestAnimationFrame to batch scroll updates
+- [x] Keep the zoom subtle, capped at 7.5%, and preserve existing hover effects
+- [x] Respect prefers-reduced-motion by disabling the zoom
+- [x] Keep card links, titles, metrics and enquiry CTAs unchanged
+- [ ] Confirm Vercel production build succeeds
+- [ ] Review scroll timing and crop behaviour on iPhone
+- [ ] Test desktop scroll-linked zoom alongside magnetic CTA interactions
+- [ ] Recheck reduced-motion and performance in browser QA
