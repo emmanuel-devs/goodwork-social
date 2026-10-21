@@ -126,3 +126,14 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [ ] Verify the latest Vercel deployment is Ready
 - [ ] Review the homepage on iPhone for smooth scrolling, image crops, and section transitions
 - [ ] Test desktop scroll and image timing alongside the magnetic CTA mouse test
+
+
+## Accessibility and performance quality pass (2026-10-21)
+- [x] Add a keyboard skip link to reduce repetitive tabbing through site navigation
+- [x] Make the skip link target focusable across the homepage, inner pages, and not-found page
+- [x] Add a consistent visible keyboard-focus fallback for links, buttons, summaries, and form controls while preserving more specific menu focus styles
+- [x] Add a preconnect hint for the external Unsplash image origin used by portfolio imagery
+- [ ] Verify skip link and keyboard focus on desktop and mobile browsers
+- [ ] Confirm the preconnect hint and image loading do not regress performance; run Lighthouse after deployment
+- [ ] Manually review layout at narrow widths and enlarged text on all five main routes
+- [ ] Recheck reduced-motion behaviour and page transitions on all routes
