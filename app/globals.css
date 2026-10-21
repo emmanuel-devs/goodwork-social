@@ -885,3 +885,21 @@ html.hero-entrance-ready .hero-art .hero-photo img{
     will-change:auto;
   }
 }
+
+
+/* Agency positioning pass: capability strip and goal-led measurement panel. */
+.practice-list{gap:18px 28px;justify-content:space-between}
+.practice-item{display:flex;align-items:center;gap:12px;min-width:0;color:var(--ink)}
+.practice-item small{font-size:9px;letter-spacing:.12em;color:var(--coral);font-weight:800}
+.practice-item strong{font-size:clamp(11px,1.1vw,14px);font-weight:700;letter-spacing:-.025em}
+.measurement-intro{padding:24px 0 2px}
+.measurement-intro>p{font-size:14px;line-height:1.65;color:var(--muted);max-width:370px;margin:10px 0 0}
+.measurement-detail{display:grid;grid-template-columns:48px minmax(0,1fr);gap:18px;padding:26px 0 24px;min-height:245px}
+.measurement-index{font-size:clamp(38px,5vw,58px);line-height:1;letter-spacing:-.08em;color:var(--coral);font-weight:500}
+.measurement-copy h3{font-size:clamp(22px,2.7vw,31px);line-height:1.15;letter-spacing:-.055em;margin:9px 0 25px;max-width:390px}
+.measurement-question-label{display:block;margin-bottom:8px}
+.measurement-copy>p{font-size:15px;line-height:1.6;margin:0;max-width:430px}
+.measurement-next{border-left:2px solid var(--coral);padding:0 0 0 14px;margin-top:22px}
+.measurement-next strong{font-size:11px}
+.measurement-next p{font-size:12px;line-height:1.65;color:var(--muted);margin:6px 0 0;max-width:430px}
+@media(max-width:700px){.practice-list{display:grid;grid-template-columns:1fr 1fr;gap:18px 14px}.practice-item{align-items:flex-start}.measurement-detail{grid-template-columns:34px minmax(0,1fr);gap:12px;min-height:0}.measurement-index{font-size:36px}.measurement-copy h3{font-size:23px}.measurement-intro>p{font-size:13px}}
