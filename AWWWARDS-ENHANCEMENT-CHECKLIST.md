@@ -155,3 +155,12 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Remove fictional testimonials and invented performance claims from homepage
 - [x] Replace testimonial cards with clear process principles instead of fabricated endorsements
 - [ ] Verify Vercel build and review mobile/desktop layouts
+
+
+## Scroll-triggered count-up metrics
+- [x] Animate Reach, Saves and Profile Visits from zero when the dashboard enters view
+- [x] Stagger each counter slightly for a considered rhythm
+- [x] Respect prefers-reduced-motion by showing final values immediately
+- [x] Use tabular numerals and responsive sizing for stable, legible counts
+- [ ] Confirm Vercel build succeeds
+- [ ] Test trigger, final values and mobile layout on live deployment
