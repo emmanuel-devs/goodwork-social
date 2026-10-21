@@ -68,6 +68,12 @@ export default function SiteMenu() {
 
   return (
     <>
+      <nav className="desktop-nav" aria-label="Main navigation">
+        {menuItems.map((item) => (
+          <a key={item.number} href={item.href}>{item.label}</a>
+        ))}
+      </nav>
+
       <button
         ref={triggerRef}
         className={`menu-trigger${open ? " is-open" : ""}`}
@@ -77,9 +83,8 @@ export default function SiteMenu() {
         aria-controls="goodwork-fullscreen-menu"
         onClick={() => setOpen((value) => !value)}
       >
-        <span className="menu-trigger-label">{open ? "Close" : "Menu"}</span>
         <span className="menu-trigger-icon" aria-hidden="true">
-          {open ? <X size={19} strokeWidth={1.6} /> : <><i /><i /></>}
+          {open ? <X size={19} strokeWidth={1.6} /> : <><i /><i /><i /></>}
         </span>
       </button>
 
