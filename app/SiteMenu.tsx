@@ -89,7 +89,6 @@ export default function SiteMenu() {
         className={`site-menu-overlay${open ? " is-open" : ""}`}
         aria-label="Site navigation"
         aria-hidden={!open}
-        inert={!open}
       >
         <div className="site-menu-top">
           <a href="/" className="site-menu-brand" onClick={closeMenu} tabIndex={open ? 0 : -1}>
