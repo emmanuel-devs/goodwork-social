@@ -36,20 +36,43 @@ const objectives = {
  }
 };
 
+function CountUpMetric({ label, value, index }: { label: string; value: number; index: number }) {
+ const [count,setCount] = useState(0);
+ const target = useRef<HTMLDivElement>(null);
+ useEffect(() => {
+  const node = target.current;
+  if (!node) return;
+  let frame = 0;
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  const observer = new IntersectionObserver((entries) => {
+   if (!entries.some((entry) => entry.isIntersecting)) return;
+   observer.disconnect();
+   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { setCount(value); return; }
+   const startAnimation = () => {
+    const start = performance.now();
+    const duration = 1450;
+    const tick = (now: number) => {
+     const progress = Math.min(1,(now-start)/duration);
+     const eased = 1-Math.pow(1-progress,4);
+     setCount(Math.round(value*eased));
+     if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+   };
+   timeout = setTimeout(startAnimation,index*140);
+  }, { threshold: 0.35 });
+  observer.observe(node);
+  return () => { observer.disconnect(); cancelAnimationFrame(frame); if(timeout) clearTimeout(timeout); };
+ },[value,index]);
+ return <div className="proof-counter" ref={target}><span className="proof-counter-label">{label}</span><strong aria-label={label+" "+value.toLocaleString("en-US")}>{count.toLocaleString("en-US")}</strong><span className="proof-counter-caption">Example value <i aria-hidden="true">↗</i></span></div>;
+}
+
 function InteractiveProof() {
- const [objective, setObjective] = useState<keyof typeof objectives>("Awareness");
- const active = objectives[objective];
- const number = objective === "Awareness" ? "01" : objective === "Consideration" ? "02" : "03";
- return <div className="results-board proof-dashboard measurement-panel">
-  <div className="results-board-head"><span>MEASUREMENT FRAMEWORK</span><span>GOAL-LED REPORTING</span></div>
-  <div className="measurement-intro"><span className="micro-label">START WITH THE OUTCOME</span><p>Different goals call for different signals. Choose the job social needs to do.</p></div>
-  <div className="proof-controls" role="group" aria-label="Choose a business objective">{(Object.keys(objectives) as Array<keyof typeof objectives>).map((name) => <button type="button" key={name} className={objective === name ? "is-active" : ""} aria-pressed={objective === name} onClick={() => setObjective(name)}>{name}</button>)}</div>
-  <div className="measurement-detail" aria-live="polite">
-   <span className="measurement-index">{number}</span>
-   <div className="measurement-copy"><span className="micro-label">SIGNALS TO WATCH</span><h3>{active.signal}</h3><span className="micro-label measurement-question-label">THE QUESTION</span><p>{active.question}</p><div className="measurement-next"><strong>What we do with it</strong><p>{active.response}</p></div></div>
-  </div>
-  <div className="proof-chart-foot"><span><i/> Objective-led reporting</span><span>No vanity metrics</span></div>
- </div>;
+ const [metric,setMetric] = useState("Reach");
+ const [windowSize,setWindowSize] = useState("12");
+ const series: Record<string, number[]> = { Reach:[18,24,22,38,34,51,47,62,58,76,72,92], Saves:[12,20,18,31,28,44,40,56,53,68,64,85], "Profile visits":[10,18,16,29,25,39,35,51,48,65,60,82] };
+ const values = (series[metric] || series.Reach).slice(windowSize==="4" ? -4 : 0);
+ return <div className="results-board proof-dashboard"><div className="results-board-head"><span>INSIGHTS EXPLORER</span><span>INTERACTIVE DEMO</span></div><div className="proof-counter-grid"><CountUpMetric label="Reach" value={12840} index={0}/><CountUpMetric label="Saves" value={864} index={1}/><CountUpMetric label="Profile visits" value={2190} index={2}/></div><div className="proof-controls" role="group" aria-label="Choose a metric">{Object.keys(series).map((name)=><button type="button" key={name} className={metric===name?"is-active":""} aria-pressed={metric===name} onClick={()=>setMetric(name)}>{name}</button>)}</div><div className="proof-chart-heading"><span className="result-brand">{metric.toUpperCase()}</span><label>View <select value={windowSize} onChange={(e)=>setWindowSize(e.target.value)} aria-label="Chart time window"><option value="12">12 weeks</option><option value="4">4 weeks</option></select></label></div><div className="proof-bars" role="img" aria-label={metric+" example trend, demonstration data"}>{values.map((value,index)=><div className="proof-bar-column" key={index}><span className="proof-bar-value">{value}</span><i style={{height:(value/100*100)+"%"}}/><small>W{windowSize==="4"?index+9:index+1}</small></div>)}</div><div className="proof-chart-foot"><span><i/> Example trend</span><span>Illustrative values</span></div><p className="concept-note">This interactive chart uses demonstration data to show how reporting could work. It does not represent real client performance.</p></div>;
 }
 
 export default function Home() {
@@ -73,11 +96,11 @@ export default function Home() {
 
     <section className="trust-section"><div className="shell trust-inner"><p className="eyebrow">How we help good businesses grow</p><div className="brand-wall practice-list"><span className="practice-item"><small>01</small><strong>Strategy & direction</strong></span><span className="practice-item"><small>02</small><strong>Social-first production</strong></span><span className="practice-item"><small>03</small><strong>Publishing & community</strong></span><span className="practice-item"><small>04</small><strong>Campaign creative</strong></span></div></div></section>
 
-    <section className="results-section shell story-section"><div className="results-intro"><p className="eyebrow">Make social accountable to a goal.</p><h2>Good social has<br/><em>a job to do.</em></h2><p>We start with what the business needs to change, then choose the message, format and signals that make sense for that goal.</p><div className="proof-guardrail"><span>01</span><p><strong>Start with the goal.</strong><br/>Awareness, engagement and action need different signals.</p></div><div className="proof-guardrail"><span>02</span><p><strong>Learn from real data.</strong><br/>We use platform analytics to understand what deserves more attention.</p></div></div><InteractiveProof /></section>
+    <section className="results-section shell story-section"><div className="results-intro"><p className="eyebrow">The work should move something.</p><h2>Not just more posts.<br/><em>More of a point.</em></h2><p>Strong social starts with a clear idea. Then we make it easy to recognise, worth spending time with and useful to the business behind it.</p><div className="proof-guardrail"><span>01</span><p><strong>Start with the goal.</strong><br/>Awareness, engagement and action need different signals.</p></div><div className="proof-guardrail"><span>02</span><p><strong>Learn from real data.</strong><br/>We use platform analytics to understand what deserves more attention.</p></div></div><InteractiveProof /></section>
 
     <section className="services-section story-section" id="services"><div className="shell"><div className="section-heading"><div><p className="eyebrow">What we bring to the table</p><p className="heading-side-note">One thoughtful partner, from the first useful question to the final edit.</p></div><h2>Make every post<br/>earn its <em>place.</em></h2></div><div className="service-grid">{services.map((s) => <article className="service-card" key={s.title}><span className="service-tag">{s.tag}</span><div className="service-icon">{s.icon}</div><h3>{s.title}</h3><p>{s.text}</p><a href={booking}>Let’s talk about it <ArrowUpRight size={15}/></a></article>)}</div></div></section>
 
-    <section className="work-section shell story-section" id="work"><div className="work-heading"><div><p className="eyebrow">Selected work</p><h2>Different businesses.<br/><em>Different stories.</em></h2></div><p>Independent project studies built around different business challenges. Each one explores how a clear point of view can shape a more recognisable content system.</p></div><div className="project-grid">{projects.map((p) => <article className={"project-card " + p.className} key={p.id}><a className="project-card-detail-link" href={"/work/"+p.id} aria-label={"Read the "+p.brand+" case study"}><span className="sr-only">Read the {p.brand} case study</span></a><div className="project-image"><img src={p.image} alt={p.alt} loading="lazy"/><span className="project-brand">{p.brand}</span><span className="project-metric"><strong>{p.type.split(" · ")[0]}</strong><small>CREATIVE FOCUS</small></span></div><div className="project-meta"><span>{p.type}</span><span>CREATIVE DIRECTION</span></div><h3>{p.title}</h3><p>{p.text}</p><a className="text-link" href={booking}>Build a story like this <ArrowUpRight size={15}/></a><a className="project-open-link" href={"/work/"+p.id}>View case study <ArrowUpRight size={14}/></a></article>)}</div></section>
+    <section className="work-section shell story-section" id="work"><div className="work-heading"><div><p className="eyebrow">Selected work</p><h2>Different businesses.<br/><em>Different stories.</em></h2></div><p>A selection of creative directions showing how strategy, content and visual identity can work together across different industries.</p></div><div className="project-grid">{projects.map((p) => <article className={"project-card " + p.className} key={p.id}><a className="project-card-detail-link" href={"/work/"+p.id} aria-label={"Read the "+p.brand+" case study"}><span className="sr-only">Read the {p.brand} case study</span></a><div className="project-image"><img src={p.image} alt={p.alt} loading="lazy"/><span className="project-brand">{p.brand}</span><span className="project-metric"><strong>{p.type.split(" · ")[0]}</strong><small>CREATIVE FOCUS</small></span></div><div className="project-meta"><span>{p.type}</span><span>CREATIVE DIRECTION</span></div><h3>{p.title}</h3><p>{p.text}</p><a className="text-link" href={booking}>Build a story like this <ArrowUpRight size={15}/></a><a className="project-open-link" href={"/work/"+p.id}>View case study <ArrowUpRight size={14}/></a></article>)}</div></section>
 
     <section className="approach-section story-section" id="about"><div className="shell approach-grid"><div className="approach-heading"><p className="eyebrow">How we work</p><h2>Clear thinking.<br/><em>Good making.</em></h2><p>We get close to the business before we reach for the camera. That’s how the content feels specific instead of interchangeable.</p><a className="button-light" href={booking}>Meet your creative partner <ArrowUpRight size={16}/></a></div><div className="approach-steps"><article><span className="step-no">01</span><div><h3>Get close to the business</h3><p>Understand the people, the product and the reason customers choose you.</p></div><span className="step-tag">LISTEN</span></article><article><span className="step-no">02</span><div><h3>Find the story worth telling</h3><p>Turn the strongest ideas into a clear direction, then make content with a point of view.</p></div><span className="step-tag">CREATE</span></article><article><span className="step-no">03</span><div><h3>Publish, learn, improve</h3><p>Pay attention to what people respond to and use it to shape the next round.</p></div><span className="step-tag">REFINE</span></article></div></div></section>
 
