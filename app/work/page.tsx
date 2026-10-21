@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SiteMenu from "./SiteMenu";
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, MoveUpRight } from "lucide-react";
 import MotionEnhancer from "../MotionEnhancer";
 import WorkPreviewEnhancer from "../WorkPreviewEnhancer";
@@ -59,9 +60,9 @@ export default function WorkPage() {
     <WorkPreviewEnhancer />
     <header className="site-header shell">
       <a href="/" className="brand" aria-label="Goodwork Social home"><span className="brand-mark">gw<span>•</span></span><span className="brand-name">goodwork<span>social studio</span></span></a>
-      <nav className="main-nav" aria-label="Main navigation"><a href="/services">Services</a><a href="/work" aria-current="page">Selected work</a><a href="/about">Our approach</a><a href="/#faq">FAQs</a></nav>
+      <SiteMenu />
       <a className="header-cta" href={booking}>Book a conversation <ArrowUpRight size={15}/></a>
-      <details className="mobile-nav"><summary aria-label="Open navigation"><span></span><span></span></summary><nav aria-label="Mobile navigation"><a href="/services">Services</a><a href="/work">Selected work</a><a href="/about">Our approach</a><a href="/#voices">Client voices</a><a href="/#faq">FAQs</a><a href={booking}>Book a conversation ↗</a></nav></details>
+      
     </header>
 
     <section className="work-hero shell">
