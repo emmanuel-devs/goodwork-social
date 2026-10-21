@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, Sparkles } from "lucide-react";
 import SiteMenu from "./SiteMenu";
 import MotionEnhancer from "./MotionEnhancer";
@@ -27,12 +27,43 @@ const testimonials = [
 ];
 
 
+function CountUpMetric({ label, value, index }: { label: string; value: number; index: number }) {
+ const [count,setCount] = useState(0);
+ const target = useRef<HTMLDivElement>(null);
+ useEffect(() => {
+  const node = target.current;
+  if (!node) return;
+  let frame = 0;
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  const observer = new IntersectionObserver((entries) => {
+   if (!entries.some((entry) => entry.isIntersecting)) return;
+   observer.disconnect();
+   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { setCount(value); return; }
+   const startAnimation = () => {
+    const start = performance.now();
+    const duration = 1450;
+    const tick = (now: number) => {
+     const progress = Math.min(1,(now-start)/duration);
+     const eased = 1-Math.pow(1-progress,4);
+     setCount(Math.round(value*eased));
+     if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+   };
+   timeout = setTimeout(startAnimation,index*140);
+  }, { threshold: 0.35 });
+  observer.observe(node);
+  return () => { observer.disconnect(); cancelAnimationFrame(frame); if(timeout) clearTimeout(timeout); };
+ },[value,index]);
+ return <div className="proof-counter" ref={target}><span className="proof-counter-label">{label}</span><strong aria-label={label+" "+value.toLocaleString("en-US")}>{count.toLocaleString("en-US")}</strong><span className="proof-counter-caption">Example value <i aria-hidden="true">↗</i></span></div>;
+}
+
 function InteractiveProof() {
  const [metric,setMetric] = useState("Reach");
  const [windowSize,setWindowSize] = useState("12");
  const series: Record<string, number[]> = { Reach:[18,24,22,38,34,51,47,62,58,76,72,92], Saves:[12,20,18,31,28,44,40,56,53,68,64,85], "Profile visits":[10,18,16,29,25,39,35,51,48,65,60,82] };
  const values = (series[metric] || series.Reach).slice(windowSize==="4" ? -4 : 0);
- return <div className="results-board proof-dashboard"><div className="results-board-head"><span>INSIGHTS EXPLORER</span><span>INTERACTIVE DEMO</span></div><div className="proof-controls" role="group" aria-label="Choose a metric">{Object.keys(series).map((name)=><button type="button" key={name} className={metric===name?"is-active":""} aria-pressed={metric===name} onClick={()=>setMetric(name)}>{name}</button>)}</div><div className="proof-chart-heading"><span className="result-brand">{metric.toUpperCase()}</span><label>View <select value={windowSize} onChange={(e)=>setWindowSize(e.target.value)} aria-label="Chart time window"><option value="12">12 weeks</option><option value="4">4 weeks</option></select></label></div><div className="proof-bars" role="img" aria-label={metric+" example trend, demonstration data"}>{values.map((value,index)=><div className="proof-bar-column" key={index}><span className="proof-bar-value">{value}</span><i style={{height:(value/100*100)+"%"}}/><small>W{windowSize==="4"?index+9:index+1}</small></div>)}</div><div className="proof-chart-foot"><span><i/> Example trend</span><span>Illustrative values</span></div><p className="concept-note">This interactive chart uses demonstration data to show how reporting could work. It does not represent real client performance.</p></div>;
+ return <div className="results-board proof-dashboard"><div className="results-board-head"><span>INSIGHTS EXPLORER</span><span>INTERACTIVE DEMO</span></div><div className="proof-counter-grid"><CountUpMetric label="Reach" value={12840} index={0}/><CountUpMetric label="Saves" value={864} index={1}/><CountUpMetric label="Profile visits" value={2190} index={2}/></div><div className="proof-controls" role="group" aria-label="Choose a metric">{Object.keys(series).map((name)=><button type="button" key={name} className={metric===name?"is-active":""} aria-pressed={metric===name} onClick={()=>setMetric(name)}>{name}</button>)}</div><div className="proof-chart-heading"><span className="result-brand">{metric.toUpperCase()}</span><label>View <select value={windowSize} onChange={(e)=>setWindowSize(e.target.value)} aria-label="Chart time window"><option value="12">12 weeks</option><option value="4">4 weeks</option></select></label></div><div className="proof-bars" role="img" aria-label={metric+" example trend, demonstration data"}>{values.map((value,index)=><div className="proof-bar-column" key={index}><span className="proof-bar-value">{value}</span><i style={{height:(value/100*100)+"%"}}/><small>W{windowSize==="4"?index+9:index+1}</small></div>)}</div><div className="proof-chart-foot"><span><i/> Example trend</span><span>Illustrative values</span></div><p className="concept-note">This interactive chart uses demonstration data to show how reporting could work. It does not represent real client performance.</p></div>;
 }
 
 export default function Home() {
