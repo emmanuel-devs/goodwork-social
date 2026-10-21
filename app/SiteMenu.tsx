@@ -118,7 +118,6 @@ export default function SiteMenu() {
           </div>
         </div>
       </section>
-      {open && <button className="site-menu-scrim" type="button" aria-label="Close navigation menu" onClick={closeMenu} tabIndex={-1} />}
     </>
   );
 }
