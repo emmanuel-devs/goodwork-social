@@ -238,3 +238,18 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [ ] Verify images zoom continuously during scroll without tapping
 - [ ] Check header background edge-to-edge on homepage and Selected Work page
 - [ ] Test desktop hover and reduced-motion behaviour
+
+
+## Agency positioning and portfolio credibility pass (2026-10-21)
+- [x] Replace the homepage's demo analytics dashboard and invented counts with an interactive, goal-led measurement framework
+- [x] Remove unsupported performance claims from the portfolio data and project cards
+- [x] Replace the homepage's illustrative brand logo wall with the studio's actual service capabilities
+- [x] Remove invented testimonial-style quote data from the homepage component
+- [x] Refine the homepage, Work page, About page, Services page and case-study labels to remove template-like issue/field-note language
+- [x] Clarify independent project studies in the portfolio copy without presenting them as paid client engagements
+- [x] Update site-wide title and description metadata to reflect the actual agency offer
+- [x] Add responsive styling for the capability strip and interactive measurement framework
+- [ ] Verify the latest Vercel deployment is Ready
+- [ ] Review the homepage and project pages on mobile for spacing, copy hierarchy and disclosure visibility
+- [ ] Test all three measurement framework options on the live site
+- [ ] Confirm the contact form and booking journey still work end to end
