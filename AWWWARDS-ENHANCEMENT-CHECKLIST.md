@@ -216,3 +216,14 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [ ] Confirm Vercel production build succeeds
 - [ ] Verify the movement is visible on iPhone while scrolling slowly through the project cards
 - [ ] Test desktop scroll direction, hover and reduced-motion behaviour
+
+
+## Mobile scroll zoom reliability fix (2026-10-21)
+- [x] Remove IntersectionObserver gating from scroll updates to avoid missed image tracking on mobile browsers
+- [x] Recalculate all six-or-fewer portfolio card images once per animation frame while scrolling
+- [x] Use CSS transform: scale() instead of the individual scale property for broad browser reliability
+- [x] Limit hover-only zoom to devices that support true hover, so tapping on iPhone does not masquerade as the scroll effect
+- [x] Recalculate on orientation changes and clean up all event listeners
+- [ ] Confirm Vercel production build succeeds
+- [ ] Verify the image visibly pulls back while scrolling without tapping
+- [ ] Test desktop hover, reduced motion and performance
