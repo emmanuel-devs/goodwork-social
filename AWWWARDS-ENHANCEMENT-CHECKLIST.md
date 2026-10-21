@@ -17,6 +17,8 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 ### 1. Motion foundation
 - [x] Inspect current CSS reveal and transition rules before changing them
 - [x] Refine existing reveal timing and stagger; avoid duplicating the current animation system (18px reveal, 650ms transition, 55ms stagger)
+- [x] Add a dedicated staggered page-load entrance sequence to the hero sections across Home, Services, Work, About, and Contact; keep scroll reveals separate
+- [ ] Verify hero entrance timing and visual quality on desktop and iPhone, including reduced-motion behaviour
 - [ ] Assess Lenis against native scrolling and test whether it adds enough value to justify another dependency
 - [ ] Add subtle magnetic button feedback on fine-pointer desktop devices only (separate follow-up; current pass adds tactile press and focus states)
 - [x] Confirm existing reduced-motion guard and CSS override are present; verify behaviour in release QA
@@ -47,6 +49,7 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 
 - [ ] Verify build succeeds
 - [ ] Test home, services, work, about, and contact pages
+- [ ] Verify page-load hero entrances on all five routes (code added; manual visual QA still required)
 - [ ] Test desktop pointer interactions and mobile touch interactions (implementation added; manual device QA still required)
 - [ ] Test keyboard-only navigation and visible focus (focus styling added; manual QA still required)
 - [ ] Test reduced-motion preferences
