@@ -793,3 +793,30 @@ html.hero-entrance-ready .hero-art .hero-photo img{
 }
 @media(max-width:420px){.case-hero-image{height:350px}.case-breadcrumb{padding-bottom:20px}.case-meta-strip{font-size:8px}.case-gallery{gap:8px}.case-gallery-item-3{margin-top:18px}.case-sample-visual{height:380px}}
 @media(prefers-reduced-motion:reduce){.case-study-page *{scroll-behavior:auto!important}}
+
+
+/* Portfolio cards now share the same case-study source and click through to detail pages. */
+.project-card{position:relative}
+.project-card-detail-link{position:absolute;inset:0;z-index:1;border-radius:inherit}
+.project-card-detail-link:focus-visible{outline:3px solid var(--ink);outline-offset:5px}
+.project-card .text-link,.project-card .project-open-link{position:relative;z-index:2}
+.project-open-link{display:inline-flex;align-items:center;gap:7px;margin-left:18px;color:var(--ink);font-size:10px;font-weight:800}
+.project-card .text-link{margin-top:3px}
+.project-image,.project-card.forma .project-image,.project-card.sunday .project-image{aspect-ratio:4/3}
+.project-card.sunday .project-image{grid-row:auto}
+.case-hero-image{aspect-ratio:16/9;height:auto;max-height:720px}
+.case-hero-image img{position:absolute;inset:0}
+.case-gallery{grid-template-columns:repeat(3,minmax(0,1fr));align-items:start}
+.case-gallery-item-1{grid-column:auto;width:auto}
+.case-gallery-item-2,.case-gallery-item-3{margin-top:0}
+.case-gallery-item img,.case-gallery-item-1 img{width:100%;aspect-ratio:4/3;height:auto;object-fit:cover}
+.case-gallery-item figcaption{font-size:8px;letter-spacing:.09em}
+@media(max-width:760px){
+ .case-hero-image{height:auto;aspect-ratio:4/3}
+ .case-gallery{grid-template-columns:1fr 1fr;gap:10px}
+ .case-gallery-item-1{grid-column:1/-1;width:100%}
+ .case-gallery-item-2,.case-gallery-item-3{margin-top:0}
+ .case-gallery-item img,.case-gallery-item-1 img{aspect-ratio:4/3}
+ .project-open-link{margin-left:12px}
+}
+@media(max-width:420px){.case-hero-image{height:auto;aspect-ratio:4/3}}
