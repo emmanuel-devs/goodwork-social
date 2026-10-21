@@ -842,29 +842,46 @@ html.hero-entrance-ready .hero-art .hero-photo img{
 }
 
 
-/* Fix the scroll zoom being overridden by legacy hover transforms, and make the sticky header span the full viewport. */
-.project-card .project-image img,.work-project-card .work-project-image img{
+/* Scroll-driven zoom must win over the older cinematic reveal transforms on homepage cards. */
+.project-card .project-image img,
+.work-project-card .work-project-image img{
   transform:scale(var(--scroll-image-scale,1));
   transition:transform .12s linear,filter .45s ease;
+  transform-origin:center center;
+  will-change:transform;
 }
-.project-card:hover .project-image img{
-  transform:scale(calc(var(--scroll-image-scale,1) * 1.035));
-  filter:saturate(1.06);
-}
+.project-card:hover .project-image img,
 .work-project-card:hover .work-project-image img{
   transform:scale(calc(var(--scroll-image-scale,1) * 1.035));
 }
+.story-section .project-card .project-image img,
+.story-section.is-story-visible .project-card .project-image img{
+  transform:scale(var(--scroll-image-scale,1));
+}
+@media(hover:hover) and (pointer:fine){
+  .project-card:hover .project-image img,
+  .work-project-card:hover .work-project-image img{
+    transform:scale(calc(var(--scroll-image-scale,1) * 1.035));
+    filter:saturate(1.06);
+  }
+}
+
+/* The sticky header owns the viewport-width background; its contents keep the site's grid gutters. */
 .site-header.shell{
   width:100%;
+  max-width:none;
   margin-inline:0;
   padding-inline:max(40px,calc((100vw - 1280px)/2));
   background:var(--paper);
+  box-sizing:border-box;
 }
 @media(max-width:950px){.site-header.shell{padding-inline:24px}}
 @media(max-width:650px){.site-header.shell{padding-inline:18px}}
 @media(prefers-reduced-motion:reduce){
-  .project-card .project-image img,.work-project-card .work-project-image img{
+  .project-card .project-image img,
+  .work-project-card .work-project-image img{
     transform:scale(1)!important;
     transition:none!important;
+    will-change:auto;
   }
 }
