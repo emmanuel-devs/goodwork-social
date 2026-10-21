@@ -825,6 +825,16 @@ html.hero-entrance-ready .hero-art .hero-photo img{
 .work-project-card .work-project-image,.work-project-card:first-child .work-project-image{aspect-ratio:4/3}
 
 
-/* Scroll-linked image zoom for portfolio cards. The individual scale property composes with hover transforms. */
-.project-image img,.work-project-image img{scale:var(--scroll-image-scale,1);transform-origin:center center;will-change:scale}
-@media(prefers-reduced-motion:reduce){.project-image img,.work-project-image img{scale:1!important;will-change:auto}}
+/* Viewport-linked zoom: images enter enlarged, then pull back as they travel through the viewport. */
+.project-image,.work-project-image{overflow:hidden}
+.project-image img,.work-project-image img{
+  scale:var(--scroll-image-scale,1);
+  transform-origin:center center;
+  will-change:scale;
+}
+.project-card:hover .project-image img,.work-project-card:hover .work-project-image img{
+  scale:calc(var(--scroll-image-scale,1) * 1.035);
+}
+@media(prefers-reduced-motion:reduce){
+  .project-image img,.work-project-image img{scale:1!important;will-change:auto}
+}
