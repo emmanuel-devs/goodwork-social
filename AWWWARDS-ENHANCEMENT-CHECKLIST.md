@@ -206,3 +206,13 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [ ] Review scroll timing and crop behaviour on iPhone
 - [ ] Test desktop scroll-linked zoom alongside magnetic CTA interactions
 - [ ] Recheck reduced-motion and performance in browser QA
+
+
+## Scroll zoom correction: viewport-driven image pullback (2026-10-21)
+- [x] Replace the barely visible 7.5% scale change with a clearer 18% to 0% pullback as images move through the viewport
+- [x] Make the image scale explicitly track the image's current viewport position during scrolling
+- [x] Preserve desktop hover zoom by composing it with the scroll-linked scale
+- [x] Keep reduced-motion users on a static image
+- [ ] Confirm Vercel production build succeeds
+- [ ] Verify the movement is visible on iPhone while scrolling slowly through the project cards
+- [ ] Test desktop scroll direction, hover and reduced-motion behaviour
