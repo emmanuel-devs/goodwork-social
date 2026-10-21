@@ -2,7 +2,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <main className="not-found-page">
+    <main id="top" tabIndex={-1} className="not-found-page">
       <header className="site-header shell">
         <a href="/" className="brand" aria-label="Goodwork Social home">
           <span className="brand-mark">gw<span>•</span></span>
