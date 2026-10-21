@@ -95,7 +95,7 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 ## Floating contact CTA (2026-10-21)
 - [x] Show a compact “Ready to talk?” CTA after the visitor scrolls beyond the opening section
 - [x] Link it to the existing /contact#enquiry journey
-- [x] Hide it around each page's closing contact section and footer
+- [x] Hide it around the contact form, closing contact sections and footer
 - [x] Add responsive placement, safe-area spacing, and keyboard focus styling
 - [x] Respect reduced-motion preferences
 - [ ] Verify latest Vercel deployment is Ready
