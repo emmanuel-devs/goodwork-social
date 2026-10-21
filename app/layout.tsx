@@ -25,5 +25,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}<MagneticButtons /><FloatingContactCTA /></body></html>;
+  return <html lang="en"><head><link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" /></head><body><a className="skip-link" href="#top">Skip to content</a>{children}<MagneticButtons /><FloatingContactCTA /></body></html>;
 }
