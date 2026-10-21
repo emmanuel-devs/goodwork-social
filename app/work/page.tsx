@@ -3,6 +3,7 @@ import SiteMenu from "../SiteMenu";
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, MoveUpRight } from "lucide-react";
 import MotionEnhancer from "../MotionEnhancer";
 import WorkPreviewEnhancer from "../WorkPreviewEnhancer";
+import { caseStudyList } from "./projects";
 
 const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "/contact#enquiry";
 
@@ -18,41 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-const projects = [
-  {
-    id: "morrow-house", number: "01", name: "Morrow House", category: "HOSPITALITY / CONTENT SYSTEM",
-    descriptor: "Make a place feel like a plan.",
-    summary: "A neighbourhood restaurant with a point of view beyond the menu. The opportunity is to make the people, rituals and atmosphere as memorable as the food.",
-    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1700&q=85",
-    alt: "Warm restaurant dining room set for an intimate dinner service", tone: "morrow",
-    challenge: "A restaurant can have beautiful food and still look like every other restaurant in the feed. Morrow House needs a story that makes people feel the place before they book a table.",
-    direction: "Bring the room to life through its people and rituals: the first plate leaving the pass, a familiar face behind the bar, the quiet details before service begins.",
-    formats: ["Chef and team portraits", "Short-form kitchen stories", "Atmosphere-led photo essays", "A repeatable weekly content rhythm"],
-    note: "A lived-in, low-light visual language. Warm tones, considered framing and human moments rather than polished food catalogue imagery."
-  },
-  {
-    id: "forma-wellbeing", number: "02", name: "Forma Wellbeing", category: "WELLNESS / BRAND STORYTELLING",
-    descriptor: "Make the feeling tangible.",
-    summary: "A thoughtful wellbeing brand that needs to make the first visit feel less unfamiliar. Clear, calm content answers the questions people might not know how to ask.",
-    image: "https://images.unsplash.com/photo-1772616748530-7cd73053f326?auto=format&fit=crop&w=1700&q=85",
-    alt: "Serene wellbeing studio with natural textures and soft daylight", tone: "forma",
-    challenge: "People often hesitate when they do not know what to expect. The content should lower that uncertainty without making the experience feel clinical or over-explained.",
-    direction: "Build trust through gentle introductions, simple explanations and real details of the experience. Show what happens, who is there and how it feels to begin.",
-    formats: ["First-visit walkthroughs", "Practitioner introductions", "Helpful question-led reels", "Quiet visual notes from the space"],
-    note: "A softer visual rhythm with daylight, tactile surfaces and calm compositions. Helpful before aspirational, reassuring without making promises."
-  },
-  {
-    id: "sunday-objects", number: "03", name: "Sunday Objects", category: "INDEPENDENT MAKERS / FOUNDER-LED",
-    descriptor: "Put the hands back in handmade.",
-    summary: "A small maker-led brand with care built into every detail. The story lives in the process, the material and the person doing the work.",
-    image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1700&q=85",
-    alt: "Creative maker's desk with notebook, paper and working tools", tone: "sunday",
-    challenge: "When a product is made with care, a standard product shot rarely tells the whole story. The work needs to show why the object is worth noticing and keeping.",
-    direction: "Make the process part of the product story. Let the founder's hands, material choices and small decisions become recurring content people can recognise.",
-    formats: ["Founder-led process films", "Material and detail photography", "Studio notes and work-in-progress", "Product stories rooted in use"],
-    note: "Close crops, honest texture and a hands-on editorial feel. Each asset should feel made, not manufactured for the algorithm."
-  }
-];
+const projects = caseStudyList;
 
 export default function WorkPage() {
   return <main id="top" tabIndex={-1} className="inner-page work-page">
