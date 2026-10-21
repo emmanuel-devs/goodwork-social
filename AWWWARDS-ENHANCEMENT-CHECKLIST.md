@@ -32,6 +32,7 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 
 ### 3. Navigation overlay
 - [x] Replace the mobile dropdown and desktop link row with a full-screen editorial navigation overlay across all five routes
+- [x] Correct nested-route imports to reference the shared component at `app/SiteMenu.tsx` (`../SiteMenu`); the home route correctly uses `./SiteMenu`
 - [x] Add close button, Escape-key support, focus trapping, focus restoration, and expanded/hidden ARIA state
 - [x] Add responsive menu layout and keyboard focus styles; verify small-screen and zoom behaviour in manual QA
 - [x] Add a live local-time display in the overlay using the visitor’s browser time zone
@@ -48,7 +49,9 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 
 ## Quality assurance and release
 
-- [x] Implement responsive full-screen navigation and visitor-local time display in code; deployment and manual QA remain pending
+- [x] Implement responsive full-screen navigation and visitor-local time display in code
+- [x] Fix the confirmed build blocker: nested routes were importing `./SiteMenu`, which pointed to nonexistent `app/<route>/SiteMenu`; those routes now import `../SiteMenu`
+- [ ] Confirm a fresh Vercel deployment succeeds; do not treat code commits as proof of a healthy deployment
 - [ ] Verify build succeeds
 - [ ] Test home, services, work, about, and contact pages, including the new full-screen navigation
 - [ ] Verify page-load hero entrances on all five routes and reduced-motion behaviour (manual QA still required)
