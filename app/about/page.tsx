@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SiteMenu from "./SiteMenu";
+import SiteMenu from "../SiteMenu";
 import { ArrowDownRight, ArrowUpRight, Check, Eye, HeartHandshake, Lightbulb, MessageCircle, ScanSearch } from "lucide-react";
 import MotionEnhancer from "../MotionEnhancer";
 
