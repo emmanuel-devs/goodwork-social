@@ -76,8 +76,51 @@ export default function MotionEnhancer() {
       ".footer-bottom > *"
     ];
 
+    const heroSelectors = [
+      ".hero-topline",
+      ".hero-copy > .eyebrow",
+      ".hero-copy > h1",
+      ".hero-copy > .hero-intro",
+      ".hero-copy > .hero-actions",
+      ".hero-copy > .hero-proof",
+      ".hero-art",
+      ".hero-ribbon",
+      ".services-hero-kicker",
+      ".services-hero-copy > .eyebrow",
+      ".services-hero-copy > h1",
+      ".services-hero-intro",
+      ".services-hero-copy > .hero-actions",
+      ".services-hero-visual",
+      ".about-hero-topline",
+      ".about-hero-copy > .eyebrow",
+      ".about-hero-copy > h1",
+      ".about-hero-intro",
+      ".about-hero-copy > .hero-actions",
+      ".about-hero-note",
+      ".work-hero-topline",
+      ".work-hero-copy > .eyebrow",
+      ".work-hero-copy > h1",
+      ".work-hero-intro",
+      ".work-hero-copy > .button-primary",
+      ".work-hero-note",
+      ".contact-hero-meta",
+      ".contact-hero-copy > .eyebrow",
+      ".contact-hero-copy > h1",
+      ".contact-hero-intro",
+      ".contact-hero-copy > .button-primary",
+      ".contact-text-link",
+      ".contact-side-note"
+    ];
+    const heroTargets = Array.from(document.querySelectorAll<HTMLElement>(heroSelectors.join(",")));
+    const heroTargetSet = new Set(heroTargets);
     const targets = Array.from(document.querySelectorAll<HTMLElement>(selectors.join(",")));
     if (!targets.length) return;
+
+    heroTargets.forEach((element, index) => {
+      element.classList.add("hero-entrance");
+      element.style.setProperty("--hero-delay", `${Math.min(index, 6) * 105}ms`);
+    });
+    document.documentElement.classList.add("hero-entrance-pending");
 
     targets.forEach((element, index) => {
       element.classList.add("motion-reveal");
@@ -90,6 +133,12 @@ export default function MotionEnhancer() {
     });
 
     document.documentElement.classList.add("motion-ready");
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        document.documentElement.classList.remove("hero-entrance-pending");
+        document.documentElement.classList.add("hero-entrance-ready");
+      });
+    });
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -100,7 +149,7 @@ export default function MotionEnhancer() {
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -7% 0px" });
 
-    targets.forEach((target) => observer.observe(target));
+    targets.forEach((target) => { if (!heroTargetSet.has(target)) observer.observe(target); });
 
     const heroArt = document.querySelector(".hero-art");
     const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -128,13 +177,13 @@ export default function MotionEnhancer() {
         heroArt.removeEventListener("mousemove", onMove as EventListener);
         heroArt.removeEventListener("mouseleave", onLeave);
         if (frame) cancelAnimationFrame(frame);
-        document.documentElement.classList.remove("motion-ready");
+        document.documentElement.classList.remove("motion-ready", "hero-entrance-pending", "hero-entrance-ready");
       };
     }
 
     return () => {
       observer.disconnect();
-      document.documentElement.classList.remove("motion-ready");
+      document.documentElement.classList.remove("motion-ready", "hero-entrance-pending", "hero-entrance-ready");
     };
   }, []);
 
