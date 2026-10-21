@@ -100,3 +100,10 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Respect reduced-motion preferences
 - [ ] Verify latest Vercel deployment is Ready
 - [ ] Manually test scroll threshold, closing-section handoff, keyboard access, and mobile layout
+
+## Magnetic CTA refinement (2026-10-21)
+- [x] Increase pointer-responsive travel from a subtle 2.5px maximum to a clearer 6px maximum per axis
+- [x] Include light buttons and the services-page light CTA in the magnetic transform styling
+- [x] Keep the interaction desktop fine-pointer only and preserve reduced-motion handling
+- [ ] Verify the updated Vercel deployment is Ready
+- [ ] Manually confirm the effect with a mouse on the live desktop site
