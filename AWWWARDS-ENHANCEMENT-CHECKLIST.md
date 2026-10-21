@@ -227,3 +227,14 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [ ] Confirm Vercel production build succeeds
 - [ ] Verify the image visibly pulls back while scrolling without tapping
 - [ ] Test desktop hover, reduced motion and performance
+
+
+## Scroll zoom cascade fix and full-width header (2026-10-21)
+- [x] Fix the CSS cascade: older card hover rules were overriding the scroll-driven transform, so the zoom variable was not visibly applied
+- [x] Ensure hover zoom composes with the live scroll scale instead of replacing it
+- [x] Make the sticky header background and bottom border span the viewport edges, while keeping its contents aligned to the page grid
+- [x] Keep responsive header gutters for tablet and mobile
+- [ ] Confirm Vercel production build succeeds
+- [ ] Verify images zoom continuously during scroll without tapping
+- [ ] Check header background edge-to-edge on homepage and Selected Work page
+- [ ] Test desktop hover and reduced-motion behaviour
