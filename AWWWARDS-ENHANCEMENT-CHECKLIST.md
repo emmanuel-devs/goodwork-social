@@ -21,7 +21,7 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] User confirmed the hero entrance animation works
 - [ ] Verify hero entrance timing and visual quality on all five routes and iPhone, including reduced-motion behaviour
 - [ ] Assess Lenis against native scrolling and test whether it adds enough value to justify another dependency
-- [ ] Add subtle magnetic button feedback on fine-pointer desktop devices only (separate follow-up; current pass adds tactile press and focus states)
+- [x] Add restrained magnetic movement to primary, light and header CTAs on fine-pointer desktop devices; disable it for reduced-motion preferences
 - [x] Confirm existing reduced-motion guard and CSS override are present; verify behaviour in release QA
 
 ### 2. Work page interaction
@@ -81,3 +81,12 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Put “Book a Conversation” before the icon-only hamburger, with the hamburger at the far right on mobile
 - [ ] Verify latest Vercel deployment is Ready
 - [ ] Manually verify desktop and mobile header layouts on the live site
+
+
+## Magnetic CTA interaction (2026-10-21)
+- [x] Add a small pointer-responsive magnetic offset to primary, light and header CTA buttons
+- [x] Restrict interaction to desktop devices with a fine pointer
+- [x] Disable the effect when reduced motion is requested
+- [x] Preserve hover lift and existing click, focus and touch behavior in the implementation
+- [ ] Verify latest Vercel deployment is Ready
+- [ ] Manually test desktop pointer response and confirm mobile behavior remains unchanged
