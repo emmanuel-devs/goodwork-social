@@ -165,6 +165,42 @@ export default function MotionEnhancer() {
 
     targets.forEach((target) => { if (!heroTargetSet.has(target)) observer.observe(target); });
 
+    // Scroll-linked zoom for portfolio card images. Only visible images are measured,
+    // and updates are batched to one animation frame for smooth, low-overhead motion.
+    const cardImages = Array.from(document.querySelectorAll<HTMLImageElement>(
+      ".project-image img, .work-project-image img"
+    ));
+    const visibleCardImages = new Set<HTMLImageElement>();
+    let imageFrame = 0;
+    const updateCardImageZoom = () => {
+      imageFrame = 0;
+      const viewportHeight = window.innerHeight || 1;
+      visibleCardImages.forEach((image) => {
+        const rect = image.getBoundingClientRect();
+        const progress = Math.max(0, Math.min(1, (viewportHeight - rect.top) / (viewportHeight + rect.height)));
+        const scale = 1 + progress * 0.075;
+        image.style.setProperty("--scroll-image-scale", scale.toFixed(4));
+      });
+    };
+    const queueCardImageZoom = () => {
+      if (!imageFrame) imageFrame = requestAnimationFrame(updateCardImageZoom);
+    };
+    const cardImageObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const image = entry.target as HTMLImageElement;
+        if (entry.isIntersecting) {
+          visibleCardImages.add(image);
+        } else {
+          visibleCardImages.delete(image);
+        }
+      });
+      queueCardImageZoom();
+    }, { rootMargin: "12% 0px 12% 0px" });
+    cardImages.forEach((image) => cardImageObserver.observe(image));
+    window.addEventListener("scroll", queueCardImageZoom, { passive: true });
+    window.addEventListener("resize", queueCardImageZoom, { passive: true });
+    queueCardImageZoom();
+
     const heroArt = document.querySelector(".hero-art");
     const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     if (heroArt && canHover) {
@@ -189,6 +225,11 @@ export default function MotionEnhancer() {
       return () => {
         observer.disconnect();
         storyObserver.disconnect();
+        cardImageObserver.disconnect();
+        window.removeEventListener("scroll", queueCardImageZoom);
+        window.removeEventListener("resize", queueCardImageZoom);
+        if (imageFrame) cancelAnimationFrame(imageFrame);
+        visibleCardImages.clear();
         heroArt.removeEventListener("mousemove", onMove as EventListener);
         heroArt.removeEventListener("mouseleave", onLeave);
         if (frame) cancelAnimationFrame(frame);
@@ -199,6 +240,11 @@ export default function MotionEnhancer() {
     return () => {
       observer.disconnect();
       storyObserver.disconnect();
+      cardImageObserver.disconnect();
+      window.removeEventListener("scroll", queueCardImageZoom);
+      window.removeEventListener("resize", queueCardImageZoom);
+      if (imageFrame) cancelAnimationFrame(imageFrame);
+      visibleCardImages.clear();
       document.documentElement.classList.remove("motion-ready", "hero-entrance-pending", "hero-entrance-ready");
     };
   }, []);
