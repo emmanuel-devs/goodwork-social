@@ -36,7 +36,7 @@ export default function WorkPage() {
       <div className="work-hero-topline"><span className="live-dot"/> SELECTED WORK <span className="work-hero-rule"/> STRATEGY / CONTENT / CAMPAIGNS</div>
       <div className="work-hero-grid">
         <div className="work-hero-copy"><p className="eyebrow">Every business has its own story.</p><h1>Different businesses.<br/><em>Different stories.</em></h1><p className="work-hero-intro">We start by paying attention. The details that make one business different should shape the way its story looks, sounds and shows up online.</p><a className="button-primary" href="#project-index">Explore the projects <ArrowDownRight size={17}/></a></div>
-        <aside className="work-hero-note"><span className="micro-label">A NOTE ON THE WORK</span><p>Each project starts with a business challenge, then develops a distinct creative direction and content system.</p><div className="work-hero-note-foot"><span>GOODWORK / STUDIO PRACTICE</span><span>PROJECT STUDIES</span></div></aside>
+        <aside className="work-hero-note"><span className="micro-label">A NOTE ON THE WORK</span><p>These independent project studies show how we translate a business challenge into a distinct creative direction and content system. They are examples of our approach, not reported client engagements.</p><div className="work-hero-note-foot"><span>GOODWORK / STUDIO PRACTICE</span><span>PROJECT STUDIES</span></div></aside>
       </div>
       <div className="work-index-strip"><span>01 / HOSPITALITY</span><span>02 / WELLBEING</span><span>03 / INDEPENDENT MAKERS</span><span>ONE STUDIO, DISTINCT STORIES</span></div>
     </section>
