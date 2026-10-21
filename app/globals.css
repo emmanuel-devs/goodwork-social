@@ -551,17 +551,20 @@ html.hero-entrance-ready .hero-art .hero-photo img{
 }
 
 
-/* Restrained magnetic response for primary CTAs on desktop pointer devices. */
+/* Magnetic response for primary CTAs on desktop pointer devices. */
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .site-header .header-cta,
   .header-cta,
   .button-primary,
-  .button-light {
+  .button-light,
+  .services-approach .button-light {
     transform: translate3d(var(--magnetic-x, 0px), var(--magnetic-y, 0px), 0);
     will-change: transform;
   }
   .header-cta:hover,
   .button-primary:hover,
-  .button-light:hover {
+  .button-light:hover,
+  .services-approach .button-light:hover {
     transform: translate3d(var(--magnetic-x, 0px), calc(var(--magnetic-y, 0px) - 2px), 0);
   }
 }
