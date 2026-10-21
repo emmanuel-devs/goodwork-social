@@ -177,8 +177,10 @@ export default function MotionEnhancer() {
       const viewportHeight = window.innerHeight || 1;
       visibleCardImages.forEach((image) => {
         const rect = image.getBoundingClientRect();
+        // The image starts noticeably enlarged as it enters from below, then
+        // pulls back to its natural size as it travels through and exits the viewport.
         const progress = Math.max(0, Math.min(1, (viewportHeight - rect.top) / (viewportHeight + rect.height)));
-        const scale = 1 + progress * 0.075;
+        const scale = 1.18 - progress * 0.18;
         image.style.setProperty("--scroll-image-scale", scale.toFixed(4));
       });
     };
