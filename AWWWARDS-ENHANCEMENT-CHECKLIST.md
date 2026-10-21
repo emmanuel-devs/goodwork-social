@@ -147,10 +147,11 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [ ] Test the enquiry flow end-to-end using the configured inbox
 
 
-## Interactive social proof experience (planned, not yet deployed)
-- [ ] Replace invented campaign metrics with an honest interactive demo until verified results are available
+## Interactive social proof experience
+- [x] Replace invented campaign metrics with an honest interactive demo until verified results are available
 - [ ] Add count-up animation with reduced-motion support
-- [ ] Add interactive metric chart with selectable reporting window
+- [x] Add interactive metric chart with selectable reporting window
 - [ ] Add clearly identified conversation preview, not fabricated client evidence
-- [ ] Remove fictional testimonials and invented performance claims from homepage
+- [x] Remove fictional testimonials and invented performance claims from homepage
+- [x] Replace testimonial cards with clear process principles instead of fabricated endorsements
 - [ ] Verify Vercel build and review mobile/desktop layouts
