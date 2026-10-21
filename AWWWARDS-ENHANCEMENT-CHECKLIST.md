@@ -38,7 +38,7 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Add close button, Escape-key support, focus trapping, focus restoration, and expanded/hidden ARIA state
 - [x] Add responsive menu layout and keyboard focus styles; verify small-screen and zoom behaviour in manual QA
 - [x] Add a live local-time display in the overlay using the visitor’s browser time zone
-- [x] Restore the header menu trigger to the right side, immediately before the booking CTA; retain the compact “Menu” label as a deliberate usability cue
+- [x] Keep the mobile hamburger icon-only, with the booking CTA immediately before it and the hamburger at the far right
 
 ### 4. Conversion support
 - [ ] Add a floating “Ready to talk?” CTA after the hero on long pages
@@ -78,6 +78,6 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Restore desktop navigation links on wide screens
 - [x] Hide desktop navigation links on compact/mobile screens
 - [x] Show a stylized three-line hamburger only on compact/mobile screens, with no “Menu” text
-- [x] Keep hamburger positioned immediately before “Book a Conversation” on mobile
+- [x] Put “Book a Conversation” before the icon-only hamburger, with the hamburger at the far right on mobile
 - [ ] Verify latest Vercel deployment is Ready
 - [ ] Manually verify desktop and mobile header layouts on the live site
