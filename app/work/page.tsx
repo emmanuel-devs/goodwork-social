@@ -77,9 +77,9 @@ export default function WorkPage() {
     <section className="work-index shell" id="project-index">
       <div className="work-index-heading"><div><p className="eyebrow">A closer look</p><h2>Good work starts<br/>with <em>good questions.</em></h2></div><p>Three different worlds, three different content challenges. Explore the thinking behind each one.</p></div>
       <div className="work-project-list" aria-label="Selected concept projects">
-        {projects.map((project) => <a className={"work-project-card " + project.tone} href={"#"+project.id} key={project.id}>
+        {projects.map((project) => <a className={"work-project-card " + project.tone} href={"/work/"+project.id} key={project.id}>
           <div className="work-project-image"><img src={project.image} alt={project.alt} loading="lazy"/><span className="work-project-number">{project.number} / 03</span><span className="work-project-open"><ArrowUpRight size={18}/></span></div>
-          <div className="work-project-copy"><span className="work-project-category">{project.category}</span><h3>{project.name}</h3><p className="work-project-descriptor">{project.descriptor}</p><p className="work-project-summary">{project.summary}</p><span className="work-project-link">Explore the thinking <ArrowRight size={15}/></span></div>
+          <div className="work-project-copy"><span className="work-project-category">{project.category}</span><h3>{project.name}</h3><p className="work-project-descriptor">{project.descriptor}</p><p className="work-project-summary">{project.summary}</p><span className="work-project-link">Open case study <ArrowRight size={15}/></span></div>
         </a>)}
       </div>
     </section>
