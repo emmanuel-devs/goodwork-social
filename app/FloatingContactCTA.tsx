@@ -3,18 +3,18 @@
 import { useEffect, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
-const END_SECTIONS = ".contact-section, .services-cta, .work-end, .about-cta, .contact-booking, .site-footer";
+const END_SECTIONS = ".contact-section, .services-cta, .work-end, .about-cta, .contact-enquiry, .contact-booking, .site-footer";
 
 export default function FloatingContactCTA() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const endSections = Array.from(document.querySelectorAll<HTMLElement>(END_SECTIONS));
-    let nearEnd = false;
+    const visibleEndSections = new Set<Element>();
 
     const updateVisibility = () => {
       const pastIntro = window.scrollY > 620;
-      setVisible(pastIntro && !nearEnd);
+      setVisible(pastIntro && visibleEndSections.size === 0);
     };
 
     const observer = new IntersectionObserver((entries) => {
