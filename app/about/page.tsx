@@ -30,7 +30,7 @@ const partnership = [
 ];
 
 export default function AboutPage() {
-  return <main id="top" className="inner-page about-page">
+  return <main id="top" tabIndex={-1} className="inner-page about-page">
     <MotionEnhancer />
     <header className="site-header shell">
       <a href="/" className="brand" aria-label="Goodwork Social home"><span className="brand-mark">gw<span>•</span></span><span className="brand-name">goodwork<span>social studio</span></span></a>
