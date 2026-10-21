@@ -728,3 +728,13 @@ html.hero-entrance-ready .hero-art .hero-photo img{
 @keyframes proof-grow{from{transform:scaleY(.12);opacity:.4}to{transform:scaleY(1);opacity:1}}
 @media(max-width:760px){.proof-bars{height:170px;gap:4px}.proof-bar-column>i{width:min(100%,18px)}.proof-controls{gap:6px}.proof-controls button{padding:8px 10px;font-size:11px}.proof-chart-heading{align-items:flex-start}.proof-chart-foot{font-size:10px}.process-card{padding:20px}}
 @media(prefers-reduced-motion:reduce){.proof-bar-column>i{animation:none}.proof-controls button{transition:none}}
+
+/* Scroll-triggered social proof counters */
+.proof-counter-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;padding:18px 0 22px;border-bottom:1px solid var(--line)}
+.proof-counter{min-width:0;display:flex;flex-direction:column;gap:8px;padding:17px 13px 15px;background:var(--white);border:1px solid var(--line);border-radius:10px}
+.proof-counter-label{font-size:11px;line-height:1.35;color:var(--muted)}
+.proof-counter strong{font-size:clamp(23px,3.2vw,38px);font-weight:500;letter-spacing:-.065em;line-height:1.05;font-variant-numeric:tabular-nums;white-space:nowrap}
+.proof-counter-caption{font-size:10px;color:var(--muted);display:flex;align-items:center;justify-content:space-between;gap:4px}
+.proof-counter-caption i{font-style:normal;color:var(--coral);font-size:13px}
+@media(max-width:760px){.proof-counter-grid{gap:6px;padding:14px 0 18px}.proof-counter{padding:13px 8px 12px;gap:7px}.proof-counter strong{font-size:clamp(20px,6vw,29px)}.proof-counter-label{font-size:10px}.proof-counter-caption{font-size:9px}}
+@media(prefers-reduced-motion:reduce){.proof-counter strong{transition:none}}
