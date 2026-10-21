@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Check, MoveUpRight } from "lucide-react";
 import MotionEnhancer from "../MotionEnhancer";
+import WorkPreviewEnhancer from "../WorkPreviewEnhancer";
 
 const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "/contact#enquiry";
 
@@ -55,6 +56,7 @@ const projects = [
 export default function WorkPage() {
   return <main id="top" className="inner-page work-page">
     <MotionEnhancer />
+    <WorkPreviewEnhancer />
     <header className="site-header shell">
       <a href="/" className="brand" aria-label="Goodwork Social home"><span className="brand-mark">gw<span>•</span></span><span className="brand-name">goodwork<span>social studio</span></span></a>
       <nav className="main-nav" aria-label="Main navigation"><a href="/services">Services</a><a href="/work" aria-current="page">Selected work</a><a href="/about">Our approach</a><a href="/#faq">FAQs</a></nav>
@@ -73,7 +75,7 @@ export default function WorkPage() {
 
     <section className="work-index shell" id="project-index">
       <div className="work-index-heading"><div><p className="eyebrow">A closer look</p><h2>Good work starts<br/>with <em>good questions.</em></h2></div><p>Three different worlds, three different content challenges. Explore the thinking behind each one.</p></div>
-      <div className="work-project-list">
+      <div className="work-project-list" aria-label="Selected concept projects">
         {projects.map((project) => <a className={"work-project-card " + project.tone} href={"#"+project.id} key={project.id}>
           <div className="work-project-image"><img src={project.image} alt={project.alt} loading="lazy"/><span className="work-project-number">{project.number} / 03</span><span className="work-project-open"><ArrowUpRight size={18}/></span></div>
           <div className="work-project-copy"><span className="work-project-category">{project.category}</span><h3>{project.name}</h3><p className="work-project-descriptor">{project.descriptor}</p><p className="work-project-summary">{project.summary}</p><span className="work-project-link">Explore the thinking <ArrowRight size={15}/></span></div>
