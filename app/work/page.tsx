@@ -9,7 +9,7 @@ const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "/contact#enquiry";
 
 export const metadata: Metadata = {
   title: "Selected Work & Creative Case Studies",
-  description: "Explore Goodwork Social concept projects across hospitality, wellbeing and independent makers, with the strategy and creative thinking behind each story.",
+  description: "Explore project studies across hospitality, wellbeing and independent makers, with the strategy and creative thinking behind each direction.",
   alternates: { canonical: "/work" },
   openGraph: {
     title: "Selected Work | Goodwork Social",
@@ -36,14 +36,14 @@ export default function WorkPage() {
       <div className="work-hero-topline"><span className="live-dot"/> SELECTED WORK <span className="work-hero-rule"/> STRATEGY / CONTENT / CAMPAIGNS</div>
       <div className="work-hero-grid">
         <div className="work-hero-copy"><p className="eyebrow">Every business has its own story.</p><h1>Different businesses.<br/><em>Different stories.</em></h1><p className="work-hero-intro">We start by paying attention. The details that make one business different should shape the way its story looks, sounds and shows up online.</p><a className="button-primary" href="#project-index">Explore the projects <ArrowDownRight size={17}/></a></div>
-        <aside className="work-hero-note"><span className="micro-label">A NOTE ON THE WORK</span><p>These concept projects show how we approach a brief: understand the business, find the story, then build a content system around it.</p><div className="work-hero-note-foot"><span>GOODWORK / FIELD NOTES</span><span>VOL. 01</span></div></aside>
+        <aside className="work-hero-note"><span className="micro-label">A NOTE ON THE WORK</span><p>Each project starts with a business challenge, then develops a distinct creative direction and content system.</p><div className="work-hero-note-foot"><span>GOODWORK / STUDIO PRACTICE</span><span>PROJECT STUDIES</span></div></aside>
       </div>
       <div className="work-index-strip"><span>01 / HOSPITALITY</span><span>02 / WELLBEING</span><span>03 / INDEPENDENT MAKERS</span><span>ONE STUDIO, DISTINCT STORIES</span></div>
     </section>
 
     <section className="work-index shell" id="project-index">
       <div className="work-index-heading"><div><p className="eyebrow">A closer look</p><h2>Good work starts<br/>with <em>good questions.</em></h2></div><p>Three different worlds, three different content challenges. Explore the thinking behind each one.</p></div>
-      <div className="work-project-list" aria-label="Selected concept projects">
+      <div className="work-project-list" aria-label="Selected projects">
         {projects.map((project) => <a className={"work-project-card " + project.tone} href={"/work/"+project.id} key={project.id}>
           <div className="work-project-image"><img src={project.image} alt={project.alt} loading="lazy"/><span className="work-project-number">{project.number} / 03</span><span className="work-project-open"><ArrowUpRight size={18}/></span></div>
           <div className="work-project-copy"><span className="work-project-category">{project.category}</span><h3>{project.name}</h3><p className="work-project-descriptor">{project.descriptor}</p><p className="work-project-summary">{project.summary}</p><span className="work-project-link">Open case study <ArrowRight size={15}/></span></div>
