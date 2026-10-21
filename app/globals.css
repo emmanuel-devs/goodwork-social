@@ -658,3 +658,60 @@ html.hero-entrance-ready .hero-art .hero-photo img{
   max-width: 330px;
   margin-top: 20px;
 }
+
+
+/* Cinematic scroll storytelling: section-aware image reveals, without scroll hijacking. */
+.story-section .project-image,
+.story-section .hero-photo,
+.story-section .services-visual-image,
+.story-section .about-manifesto-visual,
+.story-section .work-case-visual {
+  clip-path: inset(0 round 1px);
+}
+.story-section .project-image img,
+.story-section .hero-photo img,
+.story-section .services-visual-image img,
+.story-section .about-manifesto-visual img,
+.story-section .work-case-visual img {
+  transform: scale(1.045);
+  transition: transform 1.05s cubic-bezier(.2,.7,.2,1);
+}
+.story-section.is-story-visible .project-image img,
+.story-section.is-story-visible .hero-photo img,
+.story-section.is-story-visible .services-visual-image img,
+.story-section.is-story-visible .about-manifesto-visual img,
+.story-section.is-story-visible .work-case-visual img {
+  transform: scale(1);
+}
+.story-section .project-card:nth-child(2) .project-image img,
+.story-section .work-case:nth-child(2) .work-case-visual img {
+  transition-delay: 90ms;
+}
+.story-section .project-card:nth-child(3) .project-image img,
+.story-section .work-case:nth-child(3) .work-case-visual img {
+  transition-delay: 160ms;
+}
+@media (max-width: 650px) {
+  .story-section .project-image img,
+  .story-section .hero-photo img,
+  .story-section .services-visual-image img,
+  .story-section .about-manifesto-visual img,
+  .story-section .work-case-visual img {
+    transform: none;
+    transition: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .story-section .project-image img,
+  .story-section .hero-photo img,
+  .story-section .services-visual-image img,
+  .story-section .about-manifesto-visual img,
+  .story-section .work-case-visual img,
+  .story-section .project-card:nth-child(2) .project-image img,
+  .story-section .project-card:nth-child(3) .project-image img,
+  .story-section .work-case:nth-child(2) .work-case-visual img,
+  .story-section .work-case:nth-child(3) .work-case-visual img {
+    transform: none !important;
+    transition: none !important;
+  }
+}
