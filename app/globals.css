@@ -840,3 +840,31 @@ html.hero-entrance-ready .hero-art .hero-photo img{
 @media(prefers-reduced-motion:reduce){
   .project-image img,.work-project-image img{transform:scale(1)!important;will-change:auto}
 }
+
+
+/* Fix the scroll zoom being overridden by legacy hover transforms, and make the sticky header span the full viewport. */
+.project-card .project-image img,.work-project-card .work-project-image img{
+  transform:scale(var(--scroll-image-scale,1));
+  transition:transform .12s linear,filter .45s ease;
+}
+.project-card:hover .project-image img{
+  transform:scale(calc(var(--scroll-image-scale,1) * 1.035));
+  filter:saturate(1.06);
+}
+.work-project-card:hover .work-project-image img{
+  transform:scale(calc(var(--scroll-image-scale,1) * 1.035));
+}
+.site-header.shell{
+  width:100%;
+  margin-inline:0;
+  padding-inline:max(40px,calc((100vw - 1280px)/2));
+  background:var(--paper);
+}
+@media(max-width:950px){.site-header.shell{padding-inline:24px}}
+@media(max-width:650px){.site-header.shell{padding-inline:18px}}
+@media(prefers-reduced-motion:reduce){
+  .project-card .project-image img,.work-project-card .work-project-image img{
+    transform:scale(1)!important;
+    transition:none!important;
+  }
+}
