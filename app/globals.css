@@ -823,3 +823,8 @@ html.hero-entrance-ready .hero-art .hero-photo img{
 
 /* Keep every Selected Work card image on the same crop ratio, including responsive overrides. */
 .work-project-card .work-project-image,.work-project-card:first-child .work-project-image{aspect-ratio:4/3}
+
+
+/* Scroll-linked image zoom for portfolio cards. The individual scale property composes with hover transforms. */
+.project-image img,.work-project-image img{scale:var(--scroll-image-scale,1);transform-origin:center center;will-change:scale}
+@media(prefers-reduced-motion:reduce){.project-image img,.work-project-image img{scale:1!important;will-change:auto}}
