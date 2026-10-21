@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SiteMenu from "./SiteMenu";
 import { ArrowDownRight, ArrowUpRight, Check, Eye, HeartHandshake, Lightbulb, MessageCircle, ScanSearch } from "lucide-react";
 import MotionEnhancer from "../MotionEnhancer";
 
@@ -33,9 +34,9 @@ export default function AboutPage() {
     <MotionEnhancer />
     <header className="site-header shell">
       <a href="/" className="brand" aria-label="Goodwork Social home"><span className="brand-mark">gw<span>•</span></span><span className="brand-name">goodwork<span>social studio</span></span></a>
-      <nav className="main-nav" aria-label="Main navigation"><a href="/services">Services</a><a href="/work">Selected work</a><a href="/about" aria-current="page">Our approach</a><a href="/#faq">FAQs</a></nav>
+      <SiteMenu />
       <a className="header-cta" href={booking}>Book a conversation <ArrowUpRight size={15}/></a>
-      <details className="mobile-nav"><summary aria-label="Open navigation"><span></span><span></span></summary><nav aria-label="Mobile navigation"><a href="/services">Services</a><a href="/work">Selected work</a><a href="/about" aria-current="page">Our approach</a><a href="/#voices">Client voices</a><a href="/#faq">FAQs</a><a href={booking}>Book a conversation ↗</a></nav></details>
+      
     </header>
 
     <section className="about-hero shell">
