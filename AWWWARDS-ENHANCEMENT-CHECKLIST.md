@@ -115,3 +115,14 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Add restrained disclosure styling that fits the existing visual system
 - [x] User confirmed the Vercel deployment succeeded
 - [ ] Review the live homepage on mobile for disclosure placement and readability
+
+
+## Cinematic scroll storytelling (2026-10-21)
+- [x] Add section-aware image reveals to the homepage using the existing motion foundation
+- [x] Coordinate visual image depth with each section entering the viewport
+- [x] Use one-shot IntersectionObserver triggers instead of scroll hijacking or continuous scroll listeners
+- [x] Keep the image treatment subtle and staggered, rather than animating every element
+- [x] Disable image motion on small screens and for reduced-motion preferences
+- [ ] Verify the latest Vercel deployment is Ready
+- [ ] Review the homepage on iPhone for smooth scrolling, image crops, and section transitions
+- [ ] Test desktop scroll and image timing alongside the magnetic CTA mouse test
