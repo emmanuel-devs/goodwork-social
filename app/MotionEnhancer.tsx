@@ -150,6 +150,19 @@ export default function MotionEnhancer() {
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -7% 0px" });
 
+    // A second, lightweight observer coordinates image depth with the section entering view.
+    // It does not control scrolling or keep work running while a section is off-screen.
+    const storySections = Array.from(document.querySelectorAll<HTMLElement>(".story-section"));
+    const storyObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-story-visible");
+          storyObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16, rootMargin: "0px 0px -5% 0px" });
+    storySections.forEach((section) => storyObserver.observe(section));
+
     targets.forEach((target) => { if (!heroTargetSet.has(target)) observer.observe(target); });
 
     const heroArt = document.querySelector(".hero-art");
@@ -175,6 +188,7 @@ export default function MotionEnhancer() {
       heroArt.addEventListener("mouseleave", onLeave, { passive: true });
       return () => {
         observer.disconnect();
+        storyObserver.disconnect();
         heroArt.removeEventListener("mousemove", onMove as EventListener);
         heroArt.removeEventListener("mouseleave", onLeave);
         if (frame) cancelAnimationFrame(frame);
@@ -184,6 +198,7 @@ export default function MotionEnhancer() {
 
     return () => {
       observer.disconnect();
+      storyObserver.disconnect();
       document.documentElement.classList.remove("motion-ready", "hero-entrance-pending", "hero-entrance-ready");
     };
   }, []);
