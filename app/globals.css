@@ -820,3 +820,6 @@ html.hero-entrance-ready .hero-art .hero-photo img{
  .project-open-link{margin-left:12px}
 }
 @media(max-width:420px){.case-hero-image{height:auto;aspect-ratio:4/3}}
+
+/* Keep every Selected Work card image on the same crop ratio, including responsive overrides. */
+.work-project-card .work-project-image,.work-project-card:first-child .work-project-image{aspect-ratio:4/3}
