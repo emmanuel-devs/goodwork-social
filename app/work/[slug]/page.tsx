@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight, MoveUpRight } from "lucide-react";
 import SiteMenu from "../../SiteMenu";
@@ -66,7 +67,7 @@ export async function generateMetadata({params}:{params:{slug:string}}):Promise<
 }
 export default function CaseStudyPage({params}:{params:{slug:string}}){
  const p=projects[params.slug as Slug]; if(!p)notFound();
- return <main id="top" tabIndex={-1} className={"inner-page case-study-page "+p.tone} style={{"--case-accent":p.accent,"--case-surface":p.surface} as React.CSSProperties}>
+ return <main id="top" tabIndex={-1} className={"inner-page case-study-page "+p.tone} style={{"--case-accent":p.accent,"--case-surface":p.surface} as CSSProperties}>
  <MotionEnhancer/>
  <header className="site-header shell"><Link href="/" className="brand" aria-label="Goodwork Social home"><span className="brand-mark">gw<span>•</span></span><span className="brand-name">goodwork<span>social studio</span></span></Link><SiteMenu/><a className="header-cta" href={booking}>Book a conversation <ArrowUpRight size={15}/></a></header>
  <section className="case-hero shell">
