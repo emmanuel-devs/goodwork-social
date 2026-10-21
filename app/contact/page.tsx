@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import SiteMenu from "./SiteMenu";
+import SiteMenu from "../SiteMenu";
 import { ArrowDownRight, ArrowUpRight, Check, Mail, MessageCircle, MoveUpRight } from "lucide-react";
 import MotionEnhancer from "../MotionEnhancer";
 const booking = process.env.NEXT_PUBLIC_GHL_BOOKING_URL || "/contact#enquiry";
