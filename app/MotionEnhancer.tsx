@@ -165,20 +165,19 @@ export default function MotionEnhancer() {
 
     targets.forEach((target) => { if (!heroTargetSet.has(target)) observer.observe(target); });
 
-    // Scroll-linked zoom for portfolio card images. Only visible images are measured,
-    // and updates are batched to one animation frame for smooth, low-overhead motion.
+    // Direct scroll-linked zoom for the small set of portfolio card images.
+    // Measure every card on each scroll frame to avoid IntersectionObserver timing gaps on mobile Safari.
     const cardImages = Array.from(document.querySelectorAll<HTMLImageElement>(
       ".project-image img, .work-project-image img"
     ));
-    const visibleCardImages = new Set<HTMLImageElement>();
     let imageFrame = 0;
     const updateCardImageZoom = () => {
       imageFrame = 0;
-      const viewportHeight = window.innerHeight || 1;
-      visibleCardImages.forEach((image) => {
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 1;
+      cardImages.forEach((image) => {
         const rect = image.getBoundingClientRect();
-        // The image starts noticeably enlarged as it enters from below, then
-        // pulls back to its natural size as it travels through and exits the viewport.
+        // At the viewport's bottom edge the image is enlarged; as it travels upward,
+        // the image pulls back smoothly to its natural scale.
         const progress = Math.max(0, Math.min(1, (viewportHeight - rect.top) / (viewportHeight + rect.height)));
         const scale = 1.18 - progress * 0.18;
         image.style.setProperty("--scroll-image-scale", scale.toFixed(4));
@@ -187,20 +186,9 @@ export default function MotionEnhancer() {
     const queueCardImageZoom = () => {
       if (!imageFrame) imageFrame = requestAnimationFrame(updateCardImageZoom);
     };
-    const cardImageObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const image = entry.target as HTMLImageElement;
-        if (entry.isIntersecting) {
-          visibleCardImages.add(image);
-        } else {
-          visibleCardImages.delete(image);
-        }
-      });
-      queueCardImageZoom();
-    }, { rootMargin: "12% 0px 12% 0px" });
-    cardImages.forEach((image) => cardImageObserver.observe(image));
     window.addEventListener("scroll", queueCardImageZoom, { passive: true });
     window.addEventListener("resize", queueCardImageZoom, { passive: true });
+    window.addEventListener("orientationchange", queueCardImageZoom, { passive: true });
     queueCardImageZoom();
 
     const heroArt = document.querySelector(".hero-art");
@@ -227,11 +215,10 @@ export default function MotionEnhancer() {
       return () => {
         observer.disconnect();
         storyObserver.disconnect();
-        cardImageObserver.disconnect();
         window.removeEventListener("scroll", queueCardImageZoom);
         window.removeEventListener("resize", queueCardImageZoom);
+        window.removeEventListener("orientationchange", queueCardImageZoom);
         if (imageFrame) cancelAnimationFrame(imageFrame);
-        visibleCardImages.clear();
         heroArt.removeEventListener("mousemove", onMove as EventListener);
         heroArt.removeEventListener("mouseleave", onLeave);
         if (frame) cancelAnimationFrame(frame);
@@ -242,11 +229,10 @@ export default function MotionEnhancer() {
     return () => {
       observer.disconnect();
       storyObserver.disconnect();
-      cardImageObserver.disconnect();
       window.removeEventListener("scroll", queueCardImageZoom);
       window.removeEventListener("resize", queueCardImageZoom);
+      window.removeEventListener("orientationchange", queueCardImageZoom);
       if (imageFrame) cancelAnimationFrame(imageFrame);
-      visibleCardImages.clear();
       document.documentElement.classList.remove("motion-ready", "hero-entrance-pending", "hero-entrance-ready");
     };
   }, []);
