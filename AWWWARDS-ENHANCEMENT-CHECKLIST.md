@@ -22,9 +22,9 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Confirm existing reduced-motion guard and CSS override are present; verify behaviour in release QA
 
 ### 2. Work page interaction
-- [ ] Add a cursor-following project image preview for desktop pointer devices
-- [ ] Keep project links accessible by keyboard and preserve visible focus
-- [ ] Provide a natural tap-friendly layout on touch devices
+- [x] Add a cursor-following project image preview for desktop pointer devices
+- [x] Keep project links accessible by keyboard and preserve visible focus
+- [x] Keep existing full-card project links and inline images as the touch-friendly mobile experience; hide cursor preview on touch/small screens
 - [ ] Do not add interactive metric filters unless there is real, clearly sourced data worth filtering
 
 ### 3. Navigation overlay
@@ -47,8 +47,8 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 
 - [ ] Verify build succeeds
 - [ ] Test home, services, work, about, and contact pages
-- [ ] Test desktop pointer interactions and mobile touch interactions
-- [ ] Test keyboard-only navigation and visible focus
+- [ ] Test desktop pointer interactions and mobile touch interactions (implementation added; manual device QA still required)
+- [ ] Test keyboard-only navigation and visible focus (focus styling added; manual QA still required)
 - [ ] Test reduced-motion preferences
 - [ ] Test anchor navigation and scroll behaviour
 - [ ] Re-run Lighthouse / performance checks and compare with baseline
