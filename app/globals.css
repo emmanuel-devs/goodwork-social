@@ -559,6 +559,11 @@ html.hero-entrance-ready .hero-art .hero-photo img{
     transform: translate3d(var(--magnetic-x, 0px), var(--magnetic-y, 0px), 0);
     will-change: transform;
   }
+  .header-cta:hover,
+  .button-primary:hover,
+  .button-light:hover {
+    transform: translate3d(var(--magnetic-x, 0px), calc(var(--magnetic-y, 0px) - 2px), 0);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .header-cta,
