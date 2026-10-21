@@ -86,7 +86,7 @@ export default function MotionEnhancer() {
         : [];
       const stagger = Math.min(siblings.indexOf(element), 5);
       element.setAttribute("data-motion-index", String(index));
-      element.style.setProperty("--motion-delay", `${Math.max(0, stagger) * 85}ms`);
+      element.style.setProperty("--motion-delay", `${Math.max(0, stagger) * 55}ms`);
     });
 
     document.documentElement.classList.add("motion-ready");
