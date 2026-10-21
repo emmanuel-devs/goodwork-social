@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import MagneticButtons from "./MagneticButtons";
+import FloatingContactCTA from "./FloatingContactCTA";
 
 export const metadata: Metadata = {
   title: {
@@ -24,5 +25,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}<MagneticButtons /></body></html>;
+  return <html lang="en"><body>{children}<MagneticButtons /><FloatingContactCTA /></body></html>;
 }
