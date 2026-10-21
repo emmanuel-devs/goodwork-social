@@ -107,3 +107,11 @@ Purpose: elevate the existing site with a distinctive interactive experience whi
 - [x] Keep the interaction desktop fine-pointer only and preserve reduced-motion handling
 - [ ] Verify the updated Vercel deployment is Ready
 - [ ] Manually confirm the effect with a mouse on the live desktop site
+
+## Portfolio trust and concept disclosures (2026-10-21)
+- [x] Label the logo wall as illustrative brand concepts
+- [x] Label campaign figures as sample figures and disclose that they are not verified client results
+- [x] Label testimonial-style quotes as illustrative concepts, not real client testimonials
+- [x] Add restrained disclosure styling that fits the existing visual system
+- [ ] Confirm the Vercel deployment is Ready
+- [ ] Review the live homepage on mobile for disclosure placement and readability
