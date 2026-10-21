@@ -19,8 +19,8 @@ export default function MagneticButtons() {
         const rect = button.getBoundingClientRect();
         const x = (event.clientX - rect.left) / rect.width - 0.5;
         const y = (event.clientY - rect.top) / rect.height - 0.5;
-        button.style.setProperty("--magnetic-x", `${(x * 5).toFixed(2)}px`);
-        button.style.setProperty("--magnetic-y", `${(y * 5).toFixed(2)}px`);
+        button.style.setProperty("--magnetic-x", `${(x * 12).toFixed(2)}px`);
+        button.style.setProperty("--magnetic-y", `${(y * 12).toFixed(2)}px`);
       };
       const reset = () => {
         button.style.setProperty("--magnetic-x", "0px");
